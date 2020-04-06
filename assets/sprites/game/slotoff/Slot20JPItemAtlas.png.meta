@@ -1,0 +1,30 @@
+{
+  "ver": "2.0.0",
+  "uuid": "b20381ea-6772-43e6-b81b-3db03f2d4f85",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Slot20JPItemAtlas": {
+      "ver": "1.0.3",
+      "uuid": "79c5ae69-b4c9-4e7e-9597-4f8f406b040f",
+      "rawTextureUuid": "b20381ea-6772-43e6-b81b-3db03f2d4f85",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 512,
+      "height": 512,
+      "rawWidth": 512,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

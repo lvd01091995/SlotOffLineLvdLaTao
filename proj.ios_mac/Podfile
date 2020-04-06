@@ -1,0 +1,19 @@
+# Uncomment the next line to define a global platform for your project
+	platform :ios, '9.0'
+
+target 'NGW-mobile' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for NGW-mobile
+
+	pod 'OneSignal', '~> 2.12.2'
+
+	pod 'FBSDKCoreKit'
+	pod 'FBSDKLoginKit'
+	pod 'FBSDKShareKit'
+
+	pod 'FBSDKPlacesKit'
+	pod 'Google-Mobile-Ads-SDK'
+
+end
