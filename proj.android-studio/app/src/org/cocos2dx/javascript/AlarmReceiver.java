@@ -13,9 +13,10 @@ import android.media.RingtoneManager;
 import android.os.Build;
 //import android.support.v4.app.NotificationCompat;
 //import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import androidx.core.app.NotificationCompat;
+
 import khmer.ngw.card.slot.R;
 
 /**
@@ -54,10 +55,19 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         NotificationManager notificationManager = NotificationHelper.getNotificationManager(context);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            CharSequence name = category;
-            @SuppressLint("WrongConstant") NotificationChannel channel = new NotificationChannel(String.valueOf(ID_1MINH), category, NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription(message);
-
+//            CharSequence name = category;
+//            @SuppressLint("WrongConstant") NotificationChannel channel = new NotificationChannel(String.valueOf(ID_1MINH), category, NotificationManager.IMPORTANCE_DEFAULT);
+//            channel.setDescription(message);
+//
+//            notificationManager.createNotificationChannel(channel);
+            CharSequence name = "FreeChip";
+            String description = "NGW";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("0", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+           // NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
             Notification repeatedNotification = buildLocalNotification(context, pendingIntent, title, message, category, identifier).build();

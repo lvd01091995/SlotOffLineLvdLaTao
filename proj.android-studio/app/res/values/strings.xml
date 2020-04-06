@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">NGW - Khmers Cards Slots</string>
+    <string name="app_name" translatable="false">NGW-Khmers Cards Slots</string>
     <string name="facebook_app_id" translatable="false">832822687082452</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb832822687082452</string>
     <string name="ACCOUNT_KIT_CLIENT_TOKEN" translatable="false">665485c5168c544c84579dcb42f96d5b</string>

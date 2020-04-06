@@ -9,21 +9,30 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.6'
+    }
+}
+
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+repositories {
+    maven {
+        url "https://maven.google.com/"
     }
 }
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion PROP_COMPILE_SDK_VERSION.toInteger()
-    buildToolsVersion PROP_BUILD_TOOLS_VERSION
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "khmer.ngw.card.slot"
-        minSdkVersion PROP_MIN_SDK_VERSION
-        targetSdkVersion PROP_TARGET_SDK_VERSION
-        versionCode 100
-        versionName "1.00"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 106
+        versionName "1.06"
+        multiDexEnabled =true
 
         manifestPlaceholders = [manifestApplicationId: "${applicationId}",
                                 onesignal_app_id: "b7d9fbf1-e27a-4b49-9885-b596c8af2bea",
@@ -34,11 +43,12 @@ android {
                 if (!project.hasProperty("PROP_NDK_MODE") || PROP_NDK_MODE.compareTo('none') != 0) {
                     // skip the NDK Build step if PROP_NDK_MODE is none
                     targets 'cocos2djs'
-                    arguments 'NDK_TOOLCHAIN_VERSION=clang'
+                    arguments 'NDK_TOOLCHAIN_VERSION=4.9'
+                    arguments 'APP_PLATFORM=android-'+PROP_TARGET_SDK_VERSION
 
-                    def module_paths = [project.file("/Applications/CocosCreator.app/Contents/Resources/cocos2d-x"),
-                                        project.file("/Applications/CocosCreator.app/Contents/Resources/cocos2d-x/cocos"),
-                                        project.file("/Applications/CocosCreator.app/Contents/Resources/cocos2d-x/external")]
+                    def module_paths = [project.file("/Applications/CocosCreator1.app/Contents/Resources/cocos2d-x"),
+                                        project.file("/Applications/CocosCreator1.app/Contents/Resources/cocos2d-x/cocos"),
+                                        project.file("/Applications/CocosCreator1.app/Contents/Resources/cocos2d-x/external")]
                     if (Os.isFamily(Os.FAMILY_WINDOWS)) {
                         arguments 'NDK_MODULE_PATH=' + module_paths.join(";")
                     }
@@ -84,11 +94,7 @@ android {
 
     buildTypes {
         release {
-            debuggable false
-            jniDebuggable false
-            renderscriptDebuggable false
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             if (project.hasProperty("RELEASE_STORE_FILE")) {
                 signingConfig signingConfigs.release
@@ -102,9 +108,6 @@ android {
         }
 
         debug {
-            debuggable true
-            jniDebuggable true
-            renderscriptDebuggable true
             externalNativeBuild {
                 ndkBuild {
                     arguments 'NDK_DEBUG=1'
@@ -116,51 +119,42 @@ android {
 
 android.applicationVariants.all { variant ->
     // delete previous files first
-    delete "${buildDir}/intermediates/merged_assets/${variant.dirName}"
+    delete "${buildDir}/intermediates/assets/${variant.dirName}"
 
     variant.mergeAssets.doLast {
-        def sourceDir = "${buildDir}/../../../../.."
-
         copy {
-            from "${sourceDir}/res"
-            into "${outputDir}/res"
+            from "${buildDir}/../../../../../res"
+            into "${buildDir}/intermediates/assets/${variant.dirName}/res"
         }
 
         copy {
-            from "${sourceDir}/subpackages"
-            into "${outputDir}/subpackages"
+            from "${buildDir}/../../../../../src"
+            into "${buildDir}/intermediates/assets/${variant.dirName}/src"
         }
 
         copy {
-            from "${sourceDir}/src"
-            into "${outputDir}/src"
+            from "${buildDir}/../../../../../main.js"
+            from "${buildDir}/../../../../../project.json"
+            into "${buildDir}/intermediates/assets/${variant.dirName}"
         }
 
         copy {
-            from "${sourceDir}/jsb-adapter"
-            into "${outputDir}/jsb-adapter"
-        }
-
-        copy {
-            from "${sourceDir}/main.js"
-            from "${sourceDir}/project.json"
-            into outputDir
+            from "/Applications/CocosCreator1.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/script"
+            into "${buildDir}/intermediates/assets/${variant.dirName}/script"
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
-    implementation fileTree(dir: "/Applications/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/java/libs", include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':libcocos2dx')
-//    implementation 'com.facebook.android:facebook-share:[4,5)'
-    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
-    implementation 'com.facebook.android:account-kit-sdk:5.+'
-    implementation 'com.onesignal:OneSignal:3.+@aar'
-    implementation 'com.google.android.gms:play-services-gcm:+'
+    //  compile 'com.facebook.android:facebook-android-sdk:[5,6)'
+    implementation 'com.facebook.android:facebook-android-sdk:6.1.0'
+    implementation 'com.onesignal:OneSignal:3.12.6'
+   implementation 'com.google.android.gms:play-services-gcm:16.1.0'
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+  // implementation 'com.google.android.gms:play-services-ads-lite:19.0.1'
 }
-apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
-
+//apply plugin: 'com.google.gms.google-services'

@@ -11,6 +11,7 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -26,9 +27,8 @@ public class NotificationHelper {
     private static ArrayList<AlarmManager> listAlarmManagerRTC = new ArrayList<>();
     private static ArrayList<PendingIntent> listAlarmIntentRTC = new ArrayList<>();
 
-//    public static int ALARM_TYPE_ELAPSED = 101;
-//    private static AlarmManager alarmManagerElapsed;
-//    private static PendingIntent alarmIntentElapsed;
+    private static ArrayList<AlarmManager> listAlarmManagerEveryDay = new ArrayList<>();
+    private static ArrayList<PendingIntent> listAlarmIntentEveryDay = new ArrayList<>();
 
     private static ArrayList<AlarmManager> listAlarmManagerElapsed = new ArrayList<>();
     private static ArrayList<PendingIntent> listAlarmIntentElapsed = new ArrayList<>();
@@ -40,6 +40,7 @@ public class NotificationHelper {
 
     static int ID_1MINH = 0;
     static int ID_1MINH1 = 0;
+    static int ID_1MINH2 = 0;
     public static void scheduleRepeatingRTCNotification(Context context, String title, String message, String category, String identifier, int time) {
         //get calendar instance to be able to select what time notification should be scheduled
 //        Calendar calendar = Calendar.getInstance();
@@ -62,7 +63,7 @@ public class NotificationHelper {
         PendingIntent alarmIntentRTC = PendingIntent.getBroadcast(context, ++ID_1MINH, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //getting instance of AlarmManager service
-        AlarmManager alarmManagerRTC = (AlarmManager)context.getSystemService(ALARM_SERVICE);
+        AlarmManager alarmManagerRTC = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
 
         //Setting alarm to wake up device every day for clock time.
         //AlarmManager.RTC_WAKEUP is responsible to wake up device for sure, which may not be good practice all the time.
@@ -76,7 +77,52 @@ public class NotificationHelper {
         listAlarmIntentRTC.add(alarmIntentRTC);
         listAlarmManagerRTC.add(alarmManagerRTC);
     }
+    public static void scheduleRepeatingNotificationEveryDay(Context context, String title, String message, String category, String identifier, int time) {
+        int houCon = time/3600;
+        int minCon = (time - houCon*3600)/60;
 
+        Log.d("cocos", "===> scheduleRepeatingNotificationEveryDay: houCon " + houCon);
+        Log.d("cocos", "===> scheduleRepeatingNotificationEveryDay: minCon " + minCon);
+
+        Calendar calendar = Calendar.getInstance();
+//        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, houCon);
+        calendar.set(Calendar.MINUTE, minCon);
+        calendar.set(Calendar.SECOND, 00);
+
+        long startUpTime = calendar.getTimeInMillis();
+        if (System.currentTimeMillis() > startUpTime) {
+            startUpTime += AlarmManager.INTERVAL_DAY;
+        }
+
+        //Setting intent to class where Alarm broadcast message will be handled
+        Intent intent = new Intent(context, AlarmReceiver.class);
+
+        intent.putExtra("title", title);
+        intent.putExtra("message", message);
+        intent.putExtra("category", category);
+        intent.putExtra("identifier", identifier);
+      //  intent.putExtra("data", strData);
+
+        //Setting alarm pending intent
+        PendingIntent alarmIntentRTC = PendingIntent.getBroadcast(context, ++ID_1MINH2, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        //getting instance of AlarmManager service
+        AlarmManager alarmManagerRTC = (AlarmManager)context.getSystemService(ALARM_SERVICE);
+
+        //Setting alarm to wake up device every day for clock time.
+        //AlarmManager.RTC_WAKEUP is responsible to wake up device for sure, which may not be good practice all the time.
+        // Use this when you know what you're doing.
+        //Use RTC when you don't need to wake up device, but want to deliver the notification whenever device is woke-up
+        //We'll be using RTC.WAKEUP for demo purpose only
+//        alarmManagerRTC.setInexactRepeating(AlarmManager.RTC_WAKEUP,
+//                timeMili, AlarmManager.INTERVAL_DAY, alarmIntentRTC);
+        alarmManagerRTC.setRepeating(AlarmManager.RTC_WAKEUP, startUpTime, AlarmManager.INTERVAL_DAY, alarmIntentRTC);
+
+//        alarmManagerRTC.setInexactRepeating(AlarmManager.RTC_WAKEUP, startUpTime, AlarmManager.INTERVAL_DAY, alarmIntentRTC);
+        listAlarmIntentEveryDay.add(alarmIntentRTC);
+        listAlarmManagerEveryDay.add(alarmManagerRTC);
+    }
     /***
      * This is another way to schedule notifications using the elapsed time.
      * Its based on the relative time since device was booted up.
@@ -112,7 +158,16 @@ public class NotificationHelper {
             listAlarmManagerRTC.get(i).cancel(listAlarmIntentRTC.get(i));
         }
     }
-
+    public static void cancelAlarmEveryDay() {
+//        if (alarmManagerRTC!= null) {
+//            alarmManagerRTC.cancel(alarmIntentRTC);
+//        }
+        Log.v("Log Android", "0====>So luong:    " + listAlarmManagerRTC.size());
+        Log.v("Log Android", "1====>So luong:    " + listAlarmIntentRTC.size());
+        for(int i = 0; i < listAlarmManagerEveryDay.size(); i++){
+            listAlarmManagerEveryDay.get(i).cancel(listAlarmIntentEveryDay.get(i));
+        }
+    }
     public static void cancelAlarmElapsed() {
 //        if (alarmManagerElapsed!= null) {
 //            alarmManagerElapsed.cancel(alarmIntentElapsed);

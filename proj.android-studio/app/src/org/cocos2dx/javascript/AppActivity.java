@@ -22,58 +22,55 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.javascript;
-
-import org.cocos2dx.javascript.iap.InAppHelper;
-import org.cocos2dx.lib.BuildConfig;
-import org.cocos2dx.lib.Cocos2dxActivity;
-import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
-
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.IntentFilter;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.net.wifi.hotspot2.PasspointConfiguration;
 import android.os.Build;
 import android.os.Bundle;
-import org.cocos2dx.javascript.SDKWrapper;
-import org.cocos2dx.lib.Cocos2dxJavascriptJavaBridge;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.accountkit.Account;
-import com.facebook.accountkit.AccountKit;
-import com.facebook.accountkit.AccountKitCallback;
-import com.facebook.accountkit.AccountKitError;
-import com.facebook.accountkit.AccountKitLoginResult;
-import com.facebook.accountkit.ui.AccountKitActivity;
-import com.facebook.accountkit.ui.AccountKitConfiguration;
-import com.facebook.accountkit.ui.LoginType;
+//import com.facebook.accountkit.Account;
+//import com.facebook.accountkit.AccountKit;
+//import com.facebook.accountkit.AccountKitCallback;
+//import com.facebook.accountkit.AccountKitError;
+//import com.facebook.accountkit.AccountKitLoginResult;
+//import com.facebook.accountkit.ui.AccountKitActivity;
+//import com.facebook.accountkit.ui.AccountKitConfiguration;
+//import com.facebook.accountkit.ui.LoginType;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
@@ -83,6 +80,7 @@ import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.iid.InstanceID;
@@ -90,16 +88,26 @@ import com.onesignal.OSNotificationAction;
 import com.onesignal.OSNotificationOpenResult;
 import com.onesignal.OneSignal;
 
+import org.cocos2dx.javascript.iap.InAppHelper;
+import org.cocos2dx.lib.Cocos2dxActivity;
+import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
+import org.cocos2dx.lib.Cocos2dxJavascriptJavaBridge;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
-import java.net.InetAddress;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import khmer.ngw.card.slot.R;
+
+//import com.google.android.gms.iid.InstanceID;
 
 public class AppActivity extends Cocos2dxActivity {
     private CallbackManager mCallbackManager;
@@ -108,7 +116,9 @@ public class AppActivity extends Cocos2dxActivity {
     private String one_tokenid;
     private static String android_AdId;
     private String deviceId;
-
+    private static Cocos2dxActivity sCocos2dxActivity;
+    private static String url_webview_new;
+    private static ImageView sSplashBgImageView = null;
 
     //--------->>>>>>>> all onesignal <<<<<-----------------------
     private String userName;
@@ -139,10 +149,30 @@ public class AppActivity extends Cocos2dxActivity {
             }
         }
     }
-
+    private static void showSplash() {
+        sSplashBgImageView = new ImageView(sCocos2dxActivity);
+        sSplashBgImageView.setImageResource(R.drawable.bg_screen_loading1);
+        sSplashBgImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        sCocos2dxActivity.addContentView(sSplashBgImageView,
+                new WindowManager.LayoutParams(
+                        FrameLayout.LayoutParams.MATCH_PARENT,
+                        FrameLayout.LayoutParams.MATCH_PARENT
+                )
+        );
+    }
+    public static void hideSplash() {
+        sCocos2dxActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (sSplashBgImageView != null) {
+                    sSplashBgImageView.setVisibility(View.GONE);
+                }
+            }
+        });
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
+      // setTheme(R.style.MyAppTheme);
         super.onCreate(savedInstanceState);
         // Workaround in https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508
         if (!isTaskRoot()) {
@@ -153,6 +183,9 @@ public class AppActivity extends Cocos2dxActivity {
             return;
         }
         // DO OTHER INITIALIZATION BELOW
+        SDKWrapper.getInstance().init(this);
+        sCocos2dxActivity = this;
+        showSplash();
         this.setKeepScreenOn(true);
         mCallbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(mCallbackManager,
@@ -208,7 +241,7 @@ public class AppActivity extends Cocos2dxActivity {
         Log.v(TAG, "************* END ONESIGNAL  ***********");
         //*********************END One Signal ********************************************************
 
-        save_ins.registerReceiver();
+      //  save_ins.registerReceiver();
     }
 
     @Override
@@ -217,7 +250,7 @@ public class AppActivity extends Cocos2dxActivity {
         // TestCpp should create stencil buffer
         glSurfaceView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
 
-        SDKWrapper.getInstance().setGLSurfaceView(glSurfaceView,this);
+        SDKWrapper.getInstance().setGLSurfaceView(glSurfaceView);
 
         return glSurfaceView;
     }
@@ -227,14 +260,14 @@ public class AppActivity extends Cocos2dxActivity {
         super.onResume();
         SDKWrapper.getInstance().onResume();
 
-        save_ins.registerReceiver();
+      //  save_ins.registerReceiver();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         SDKWrapper.getInstance().onPause();
-        unregisterReceiver(networkChangeReceiver);
+   //     unregisterReceiver(networkChangeReceiver);
     }
 
     @Override
@@ -259,41 +292,41 @@ public class AppActivity extends Cocos2dxActivity {
         }
 
         final String toastMessage;
-        final AccountKitLoginResult loginResult = AccountKit.loginResultWithIntent(data);
-        if (loginResult == null || loginResult.wasCancelled()) {
-            toastMessage = "Login Cancelled";
-        } else if (loginResult.getError() != null) {
-
-        } else {
-            final com.facebook.accountkit.AccessToken accessToken = loginResult.getAccessToken();
-            final long tokenRefreshIntervalInSeconds =
-                    loginResult.getTokenRefreshIntervalInSeconds();
-            if (accessToken != null) {
-                toastMessage = "Success:" + accessToken.getAccountId()
-                        + tokenRefreshIntervalInSeconds;
-//                startActivity(new Intent(this, TokenActivity.class));
-
-                AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
-                    @Override
-                    public void onSuccess(final Account account) {
-                        Log.i("<cocos> result userId: ", account.getId());
-                        Log.i("<cocos> result number: ", account.getPhoneNumber() + "");
-
-                        save_ins.sendToJavascript(VEYRY_PHONE, account.getPhoneNumber() + "");
-                    }
-                    @Override
-                    public void onError(final AccountKitError error) {
-                        Log.i("<cocos> err", error + "");
-                        Log.i("<cocos> result: ", "error, not found");
-
-                        save_ins.sendToJavascript(VEYRY_PHONE,  "error");
-                    }
-                });
-
-            } else {
-                toastMessage = "Unknown response type";
-            }
-        }
+//        final AccountKitLoginResult loginResult = AccountKit.loginResultWithIntent(data);
+//        if (loginResult == null || loginResult.wasCancelled()) {
+//            toastMessage = "Login Cancelled";
+//        } else if (loginResult.getError() != null) {
+//
+//        } else {
+//            final com.facebook.accountkit.AccessToken accessToken = loginResult.getAccessToken();
+//            final long tokenRefreshIntervalInSeconds =
+//                    loginResult.getTokenRefreshIntervalInSeconds();
+//            if (accessToken != null) {
+//                toastMessage = "Success:" + accessToken.getAccountId()
+//                        + tokenRefreshIntervalInSeconds;
+////                startActivity(new Intent(this, TokenActivity.class));
+//
+//                AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
+//                    @Override
+//                    public void onSuccess(final Account account) {
+//                        Log.i("<cocos> result userId: ", account.getId());
+//                        Log.i("<cocos> result number: ", account.getPhoneNumber() + "");
+//
+//                        save_ins.sendToJavascript(VEYRY_PHONE, account.getPhoneNumber() + "");
+//                    }
+//                    @Override
+//                    public void onError(final AccountKitError error) {
+//                        Log.i("<cocos> err", error + "");
+//                        Log.i("<cocos> result: ", "error, not found");
+//
+//                        save_ins.sendToJavascript(VEYRY_PHONE,  "error");
+//                    }
+//                });
+//
+//            } else {
+//                toastMessage = "Unknown response type";
+//            }
+//        }
     }
 
     @Override
@@ -343,24 +376,24 @@ public class AppActivity extends Cocos2dxActivity {
         SDKWrapper.getInstance().onStart();
         super.onStart();
 
-//        new Thread(new Runnable() {
-//            public void run()
-//            {
-//                try
-//                {
-//                    Context ctx = AppActivity.this.getApplicationContext();
-//                    AdvertisingIdClient.Info adInfo = AdvertisingIdClient.getAdvertisingIdInfo(ctx);
-//                    android_AdId = adInfo.getId();
-//                    Log.v("getAndroidGGAID", "result androidAdId try: " + android_AdId);
-//                }
-//                catch (Exception e)
-//                {
-//                    android_AdId = "";
-//                    Log.v("getAndroidGGAID", "result androidAdId catch: " + e.toString());
-//                }
-//
-//            }
-//        }).start();
+       new Thread(new Runnable() {
+           public void run()
+           {
+               try
+               {
+                   Context ctx = AppActivity.this.getApplicationContext();
+                   AdvertisingIdClient.Info adInfo = AdvertisingIdClient.getAdvertisingIdInfo(ctx);
+                   android_AdId = adInfo.getId();
+                   Log.v("getAndroidGGAID", "result androidAdId try: " + android_AdId);
+               }
+               catch (Exception e)
+               {
+                   android_AdId = "";
+                   Log.v("getAndroidGGAID", "result androidAdId catch: " + e.toString());
+               }
+
+           }
+       }).start();
     }
 
     /**/
@@ -388,15 +421,21 @@ public class AppActivity extends Cocos2dxActivity {
     private static final String OPEN_GROUP  = "15";
     private static final String CHECK_NETWORK  = "16";
     private static final String PUSH_NOTI_OFFLINE  = "17";
-
-    public static void onCallFromJavascript(final String evt, final String params) throws JSONException {
+    private static final String CHECK1SIM  = "20";
+    private static final String CHECK2SIM  = "21";
+    private static final String HIDESPLASH  = "22";
+ private static final String GET_INFO_DEVICE_SML  = "23";
+    private static final String CALL_PHONE  = "24";
+    private static final String WEB_VIEW  = "25";
+    private static final String CLOSE_WEB_VIEW  = "26";
+    public static void onCallFromJavascript(final String evt, final String params) throws JSONException, UnsupportedEncodingException {
         Log.v("JAVASCRIPT_2_ANDROID", "---onCallFromJavascript === EVT " + evt + " Data: " + params);
 
 //        showAlertDialog("HELLO " + evt, params);
         switch (evt){
             case GET_ANDROID_ID:{
-                save_ins.getAndroidId();
-//                save_ins.sendToJavascript(GET_ANDROID_ID, getIID(save_ins));
+                // save_ins.getAndroidId();
+                save_ins.sendToJavascript(GET_ANDROID_ID, getIID(save_ins));
                 break;
             }
             case GET_BUNDLE_ID:{
@@ -411,7 +450,7 @@ public class AppActivity extends Cocos2dxActivity {
                 save_ins.onLoginFacebook();
                 break;
             }case VEYRY_PHONE:{
-                save_ins.onVeryPhone();
+              //  save_ins.onVeryPhone();
                 break;
             }case CHAT_ADMIN:{
                 JSONObject jsonData = new JSONObject(params);
@@ -470,20 +509,60 @@ public class AppActivity extends Cocos2dxActivity {
                 break;
             }
 
-            case CHECK_NETWORK:{
-                save_ins.checkNetwork();
-                break;
-            }
+//            case CHECK_NETWORK:{
+//                save_ins.checkNetwork();
+//                break;
+//            }
             case PUSH_NOTI_OFFLINE:{
-                Log.i("Cocos Call Native:", "Push Noti OffLine: " + params);
+               // Log.i("Cocos Call Native:", "Push Noti OffLine: " + params);
                 JSONObject jsonData = new JSONObject(params);
                 String title = jsonData.getString("title");
-                String content = jsonData.getString("content");
+
+                String base64 = jsonData.getString("content");
+                byte[] data = Base64.decode(base64, Base64.DEFAULT);
+                String content = new String(data, "UTF-8");
+                Log.d("js" , "chuoi nhan dc la== " + content );
+
                 String category = jsonData.getString("category");
                 String identifier = jsonData.getString("identifier");
                 int time = Integer.parseInt(jsonData.getString("time"));
-                save_ins.pushNotiOffline(title, content, category, identifier, time);
+                boolean isLoop =Boolean.parseBoolean(jsonData.getString("isLoop"));
+                save_ins.pushNotiOffline(title, content, category, identifier, time,isLoop);
                 break;
+            }
+            // case CHECK1SIM:{
+            //     save_ins.sendToJavascript(CHECK1SIM, check1simallmang());
+            //     break;
+            // }
+            // case CHECK2SIM:{
+            //     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            //         Log.d("TEST", "check 2 sim lolipop");
+            //         save_ins.sendToJavascript(CHECK2SIM, check2simallmang());
+
+
+            //     } else {
+            //         Log.d("TEST", "check 1 sim kitkat");
+            //         save_ins.checkForPhoneStatePermission(1);
+            //         save_ins.sendToJavascript(CHECK1SIM, check1simallmang());
+
+            //     }
+            //     break;
+            // }
+            case HIDESPLASH:{
+                save_ins.hideSplash();
+                break;
+            }
+             case GET_INFO_DEVICE_SML:{
+                save_ins.getInfoDeviceSML();
+                break;
+            }
+            case CALL_PHONE:{
+                save_ins.callPhone(params);
+                break;
+            }
+            case WEB_VIEW:{
+                save_ins.url_webview_new = params;
+                save_ins.callOpenWebView();
             }
         }
     }
@@ -494,7 +573,7 @@ public class AppActivity extends Cocos2dxActivity {
         save_ins.runOnGLThread(new Runnable() {
             @Override
             public void run() {
-                // Cocos2dxJavascriptJavaBridge.evalString("console.log('--------->>>>>>>>JavaCall evt: " + evt + "  params:  " + params + " ');");
+                // Cocos2dxJavascriptJavaBridge.evalString("cc.NGWlog('--------->>>>>>>>JavaCall evt: " + evt + "  params:  " + params + " ');");
                 Cocos2dxJavascriptJavaBridge.evalString("cc.NativeCallJS(\"" + evt + "\",\"" + params + "\")");
             }
         });
@@ -506,7 +585,7 @@ public class AppActivity extends Cocos2dxActivity {
         save_ins.runOnGLThread(new Runnable() {
             @Override
             public void run() {
-                // Cocos2dxJavascriptJavaBridge.evalString("console.log('--------->>>>>>>>JavaCall evt: " + evt + "  params:  " + params + " ');");
+                // Cocos2dxJavascriptJavaBridge.evalString("cc.NGWlog('--------->>>>>>>>JavaCall evt: " + evt + "  params:  " + params + " ');");
                 Cocos2dxJavascriptJavaBridge.evalString("cc.NativeCallJS(\"" + evt + "\",\'" + params + "\')");
             }
         });
@@ -538,7 +617,6 @@ public class AppActivity extends Cocos2dxActivity {
 
         String android_ins_Id = "";
         try {
-
             android_ins_Id = InstanceID.getInstance(context).getId();
         } catch (Exception ex) {
             android_ins_Id = "";
@@ -629,27 +707,27 @@ public class AppActivity extends Cocos2dxActivity {
         }
     }
 
-    public void onVeryPhone() {
-        if (AccountKit.getCurrentAccessToken() != null) { // AcountKit
-            Log.i("<cocos> check ", "return " + AccountKit.getCurrentAccessToken());
-
-            AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
-                @Override
-                public void onSuccess(final Account account) {
-                    Log.i("<cocos> return userId: ", account.getId());
-                    Log.i("<cocos> return number: ", account.getPhoneNumber() + "");
-                }
-
-                @Override
-                public void onError(final AccountKitError error) {
-                    Log.i("<cocos> return: ", "error, not found");
-                }
-            });
-
-            AccountKit.logOut();
-        } else
-            save_ins.onCallFunVerify(LoginType.PHONE);
-    }
+//    public void onVeryPhone() {
+//        if (AccountKit.getCurrentAccessToken() != null) { // AcountKit
+//            Log.i("<cocos> check ", "return " + AccountKit.getCurrentAccessToken());
+//
+//            AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
+//                @Override
+//                public void onSuccess(final Account account) {
+//                    Log.i("<cocos> return userId: ", account.getId());
+//                    Log.i("<cocos> return number: ", account.getPhoneNumber() + "");
+//                }
+//
+//                @Override
+//                public void onError(final AccountKitError error) {
+//                    Log.i("<cocos> return: ", "error, not found");
+//                }
+//            });
+//
+//            AccountKit.logOut();
+//        } else
+//            save_ins.onCallFunVerify(LoginType.PHONE);
+//    }
     public void openMessageFacebook(String pageID, String pageURL) {
         try {
             boolean isExistFacebookApp = save_ins.appInstalledOrNot("com.facebook.orca");
@@ -673,46 +751,46 @@ public class AppActivity extends Cocos2dxActivity {
     private interface OnCompleteListener {
         void onComplete();
     }
-    public void onCallFunVerify(final LoginType loginType) {
-        final Intent intent = new Intent(this, AccountKitActivity.class);
-        final AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder
-                = new AccountKitConfiguration.AccountKitConfigurationBuilder(
-                loginType,
-                AccountKitActivity.ResponseType.TOKEN);
-        //By default enableInitialSmsButton=true which displays sms as login option alongwith whatsapp
-        configurationBuilder.setEnableInitialSmsButton(true);
-        final AccountKitConfiguration configuration = configurationBuilder.build();
-        intent.putExtra(
-                AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,
-                configuration);
-        OnCompleteListener completeListener = new OnCompleteListener() {
-            @Override
-            public void onComplete() {
-                startActivityForResult(intent, FRAMEWORK_REQUEST_CODE);
-            }
-        };
-        switch (loginType) {
-            case EMAIL:
-
-                break;
-            case PHONE:
-                if (configuration.isReadPhoneStateEnabled() && !isGooglePlayServicesAvailable()) {
-                    final OnCompleteListener readPhoneStateCompleteListener = completeListener;
-                    completeListener = new OnCompleteListener() {
-                        @Override
-                        public void onComplete() {
-                            requestPermissions(
-                                    Manifest.permission.READ_PHONE_STATE,
-                                    R.string.permissions_read_phone_state_title,
-                                    R.string.permissions_read_phone_state_message,
-                                    readPhoneStateCompleteListener);
-                        }
-                    };
-                }
-                break;
-        }
-        completeListener.onComplete();
-    }
+//    public void onCallFunVerify(final LoginType loginType) {
+//        final Intent intent = new Intent(this, AccountKitActivity.class);
+//        final AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder
+//                = new AccountKitConfiguration.AccountKitConfigurationBuilder(
+//                loginType,
+//                AccountKitActivity.ResponseType.TOKEN);
+//        //By default enableInitialSmsButton=true which displays sms as login option alongwith whatsapp
+//        configurationBuilder.setEnableSms(true);
+//        final AccountKitConfiguration configuration = configurationBuilder.build();
+//        intent.putExtra(
+//                AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,
+//                configuration);
+//        OnCompleteListener completeListener = new OnCompleteListener() {
+//            @Override
+//            public void onComplete() {
+//                startActivityForResult(intent, FRAMEWORK_REQUEST_CODE);
+//            }
+//        };
+//        switch (loginType) {
+//            case EMAIL:
+//
+//                break;
+//            case PHONE:
+//                if (configuration.isReadPhoneStateEnabled() && !isGooglePlayServicesAvailable()) {
+//                    final OnCompleteListener readPhoneStateCompleteListener = completeListener;
+//                    completeListener = new OnCompleteListener() {
+//                        @Override
+//                        public void onComplete() {
+//                            requestPermissions(
+//                                    Manifest.permission.READ_PHONE_STATE,
+//                                    R.string.permissions_read_phone_state_title,
+//                                    R.string.permissions_read_phone_state_message,
+//                                    readPhoneStateCompleteListener);
+//                        }
+//                    };
+//                }
+//                break;
+//        }
+//        completeListener.onComplete();
+//    }
     private boolean canReadSmsWithoutPermission() {
         final GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
         int googlePlayServicesAvailable = apiAvailability.isGooglePlayServicesAvailable(this);
@@ -924,62 +1002,62 @@ public class AppActivity extends Cocos2dxActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d("app","Network connectivity change");
-            save_ins.checkNetwork();
+          //  save_ins.checkNetwork();
         }
     };
 
-    public void registerReceiver(){
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-        registerReceiver(networkChangeReceiver, intentFilter);
-    }
+//    public void registerReceiver(){
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+//        registerReceiver(networkChangeReceiver, intentFilter);
+//    }
 
     public void checkNetwork(){
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo Info = cm.getActiveNetworkInfo();
-
-        if (Info == null || !Info.isConnectedOrConnecting()) {
-            Log.i(TAG, "No connection");
-            showToast("Not Connection. Please check Setting connection again!");
-
-            save_ins.sendToJavascript(CHECK_NETWORK, "-1");
-        } else {
-            int netType = Info.getType();
-//            int netSubtype = Info.getSubtype();
-
-            if (netType == ConnectivityManager.TYPE_WIFI) {
-                Log.i(TAG, "Wifi connection");
-                WifiManager wifiManager = (WifiManager) save_ins.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-
-                int rssi = wifiManager.getConnectionInfo().getRssi();
-                int level = WifiManager.calculateSignalLevel(rssi, 5);
-                Log.i(TAG,"-->Wifi connection Level is " + level + " out of 5");
-                if(level < 3){
-                    showToast("Mạng cùi bắp nên nghỉ chơi đi!");
-                    save_ins.sendToJavascript(CHECK_NETWORK, "0");
-                    return;
-                }
-            } else if (netType == ConnectivityManager.TYPE_MOBILE) {
-                Log.i(TAG, "GPRS/3G connection");
-            }
-
-            if(isInternetAvailable()){
-                Log.i(TAG, "Has internet");
-            }else{
-                Log.i(TAG, "Not internet");
-                showToast("No internet connection, please check 3G/wifi connection again!");
-                save_ins.sendToJavascript(CHECK_NETWORK, "-1");
-            }
-        }
+//        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo Info = cm.getActiveNetworkInfo();
+//
+//        if (Info == null || !Info.isConnectedOrConnecting()) {
+//            Log.i(TAG, "No connection");
+//            showToast("Not Connection. Please check Setting connection again!");
+//
+//           // save_ins.sendToJavascript(CHECK_NETWORK, "-1");
+//        } else {
+//            int netType = Info.getType();
+////            int netSubtype = Info.getSubtype();
+//
+//            if (netType == ConnectivityManager.TYPE_WIFI) {
+//                Log.i(TAG, "Wifi connection");
+//                WifiManager wifiManager = (WifiManager) save_ins.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+//
+//                int rssi = wifiManager.getConnectionInfo().getRssi();
+//                int level = WifiManager.calculateSignalLevel(rssi, 5);
+//                Log.i(TAG,"-->Wifi connection Level is " + level + " out of 5");
+//                if(level < 3){
+//                    showToast("Low network");
+//                    save_ins.sendToJavascript(CHECK_NETWORK, "0");
+//                    return;
+//                }
+//            } else if (netType == ConnectivityManager.TYPE_MOBILE) {
+//                Log.i(TAG, "GPRS/3G connection");
+//            }
+//
+//            if(isInternetAvailable()){
+//                Log.i(TAG, "Has internet");
+//            }else{
+//                Log.i(TAG, "Not internet");
+//                showToast("No internet connection, please check 3G/wifi connection again!");
+//                save_ins.sendToJavascript(CHECK_NETWORK, "-1");
+//            }
+//        }
     }
-    boolean isInternetAvailable() {
-        try {
-            String command = "ping -c 1 google.com";
-            return (Runtime.getRuntime().exec(command).waitFor() == 0);
-        } catch (Exception e) {
-            return false;
-        }
-    }
+//    boolean isInternetAvailable() {
+//        try {
+//            String command = "ping -c 1 google.com";
+//            return (Runtime.getRuntime().exec(command).waitFor() == 0);
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
 
     void showToast(final String msg){
         save_ins.runOnUiThread(new Runnable() {
@@ -989,16 +1067,195 @@ public class AppActivity extends Cocos2dxActivity {
             }
         });
     }
-    public void pushNotiOffline(String title, String content, String category, String identifier, int time) {
-        try {
+    public void pushNotiOffline(String title, String content, String category, String identifier, int time,boolean isLoop ) {
             Log.v(TAG, "0000==============> " + title + " MSG   " + content + " TIME " + String.valueOf(time));
             if (content.isEmpty() || content == "") return;
-            Log.v(TAG, "0000==============> " );
+        if(title == ""){
+            title = String.valueOf(R.string.app_name);
+        }
+        if(!isLoop){
+            Log.v(TAG, "pushNotiOffline  isLoop = false" );
             NotificationHelper.scheduleRepeatingRTCNotification(save_ins, title, content, category, identifier, time);
             NotificationHelper.enableBootReceiver(save_ins);
+       }else{
+            Log.v(TAG, "pushNotiOffline  isLoop = true" );
+           NotificationHelper.scheduleRepeatingNotificationEveryDay(save_ins, title, content, category, identifier, time);
+            NotificationHelper.enableBootReceiver(save_ins);
+        }
+
+    }
+
+    public void removeAllHandleNoti() {
+        try {
+            Log.v("Log Android", "===> vao ham huy");
+            NotificationHelper.cancelAlarmElapsed();
+//            NotificationHelper.disableBootReceiver(save_ins);
+            NotificationHelper.cancelAlarmEveryDay();
+            NotificationHelper.cancelAlarmRTC();
+            NotificationHelper.disableBootReceiver(save_ins);
         } catch (Exception e) {
+            Log.v("Log Android", "====>Exception removeAllHandleNoti");
             e.printStackTrace();
         }
     }
 
+    private void checkForPhoneStatePermission(int typeCheck) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            // 6.0
+
+            if (typeCheck == 1) { // state, location
+
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                    // SDK xin roi
+                    ActivityCompat.requestPermissions(save_ins, new String[]{Manifest.permission.READ_PHONE_STATE}, REQUEST_PHONE_STATE_CODE);
+                } else {
+                    //... Permission has already been granted, obtain the UUID
+//                    getDeviceUuId();
+                }
+
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(save_ins, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PHONE_LOCATION_CODE);
+                }
+
+            } else if (typeCheck == 2) { // contact
+
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
+                    // SDK xin roi
+//					ActivityCompat.requestPermissions(save_ins, new String[]{android.Manifest.permission.GET_ACCOUNTS}, REQUEST_PHONE_GET_ACC_CODE);
+                }
+
+            } else if (typeCheck == 3) { // SMS
+
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(save_ins, new String[]{Manifest.permission.READ_SMS}, REQUEST_PHONE_READ_SMS_CODE);
+                }
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(save_ins, new String[]{Manifest.permission.RECEIVE_SMS}, REQUEST_PHONE_RECEIVE_SMS_CODE);
+                }
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(save_ins, new String[]{Manifest.permission.SEND_SMS}, REQUEST_PHONE_SEND_SMS_CODE);
+                }
+
+
+            } else if (typeCheck == 4) { // camera
+
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(save_ins, new String[]{Manifest.permission.CAMERA}, REQUEST_PHONE_CAMERA_CODE);
+                }
+
+            } else if (typeCheck == 5) { // storage
+
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(save_ins, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PHONE_READ_FILE_CODE);
+                }
+
+                if (ContextCompat.checkSelfPermission(save_ins, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    // SDK xin roi
+//					ActivityCompat.requestPermissions(save_ins, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PHONE_WRITE_FILE_CODE);
+                }
+
+            }
+        } else {
+//            getDeviceUuId();
+        }
+    }
+  public void getInfoDeviceSML() {
+        Log.d("ANDROID CC","getInfoDeviceSML!!!!");
+
+        String langu = Locale.getDefault().getDisplayLanguage();
+        String mod = Build.MODEL;
+        PackageInfo pInfo = null;
+        String versionNam = "unknow";
+        String versionOs = Build.VERSION.SDK_INT + "";
+        String brand = Build.BRAND;
+        try {
+            pInfo = save_ins.getPackageManager().getPackageInfo(save_ins.getPackageName(), 0);
+            versionNam = pInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            JSONObject tempJsonObj = new JSONObject();
+            tempJsonObj.put("language", langu);
+            tempJsonObj.put("model", mod);
+            tempJsonObj.put("vername", versionNam);
+            tempJsonObj.put("veros", versionOs);
+            tempJsonObj.put("brand", brand);
+           // String strJsonBody = tempJsonObj.toString();
+            String strJsonBody = langu+","+mod+","+versionNam+","+versionOs+","+brand+",";
+            Log.v("Android", "====>11 gui cho JS: " + strJsonBody);
+            save_ins.sendToJavascript(GET_INFO_DEVICE_SML, strJsonBody);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+    public void callPhone(String phoneNumber){
+        try {
+            Log.e("cocos", "Vao ham goi roi " + phoneNumber);
+            if(ContextCompat.checkSelfPermission(save_ins, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
+                save_ins.startActivity(callIntent);
+//                    Intent intent = new Intent(Intent.ACTION_DIAL);
+//                    intent.setData(Uri.parse(number));
+//                    save_ins.startActivity(intent);
+            }
+
+            Log.e("cocos", "Vao ham goi roi 222222" + phoneNumber);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+    public void callOpenWebView() {
+        save_ins.runOnUiThread(new Runnable() {
+            public void run() {
+                final Dialog dialog = new Dialog(save_ins, android.R.style.Theme_Translucent_NoTitleBar);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.activity_main);
+
+                ImageButton dialogButton = (ImageButton) dialog.findViewById(R.id.btn_close);
+                dialogButton.setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                save_ins.sendToJavascript(CLOSE_WEB_VIEW,null);
+                                Log.d("CLOSE WEB VIEW","BO MAY CLOSE WEB VIEW");
+                            }
+                        });
+
+                WebView webView = (WebView) dialog.findViewById(R.id.webview);
+                WebSettings webSettings = webView.getSettings();
+                webSettings.setJavaScriptEnabled(true);
+                webSettings.setDomStorageEnabled(true);
+
+                webView.loadUrl(save_ins.url_webview_new);
+
+                webView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        return false;
+                    }
+                });
+
+                dialog.show();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                dialog.getWindow().getAttributes().gravity = Gravity.CENTER;
+            }
+        });
+
+    }
+    private static final int REQUEST_PHONE_STATE_CODE = 2171;
+    private static final int REQUEST_PHONE_GET_ACC_CODE = 2172;
+    private static final int REQUEST_PHONE_READ_SMS_CODE = 2173;
+    private static final int REQUEST_PHONE_SEND_SMS_CODE = 2174;
+    private static final int REQUEST_PHONE_RECEIVE_SMS_CODE = 2175;
+    private static final int REQUEST_PHONE_CAMERA_CODE = 2176;
+    private static final int REQUEST_PHONE_LOCATION_CODE = 2177;
+    private static final int REQUEST_PHONE_READ_FILE_CODE = 2178;
+    private static final int REQUEST_PHONE_WRITE_FILE_CODE = 2179;
 }

@@ -9,33 +9,36 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="com.android.vending.BILLING" />
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
-
         <!-- Tell Cocos2dxActivity the name of our .so -->
         <meta-data android:name="android.app.lib_name"
             android:value="cocos2djs" />
         <provider android:authorities="com.facebook.app.FacebookContentProvider832822687082452"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true"/>
-
+        <activity
+            android:name="org.cocos2dx.javascript.SplashScreen"
+            android:theme="@style/MyAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="org.cocos2dx.javascript.AppActivity"
             android:screenOrientation="sensorLandscape"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"
             android:launchMode="singleTask"
-            android:taskAffinity="" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:taskAffinity=""
+            android:theme="@style/SplashStyle">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
@@ -59,7 +62,7 @@
         </activity>
         <activity
             android:name="com.facebook.accountkit.ui.AccountKitActivity" />
-<!--offlinepush noti -->
+        <!--offlinepush noti -->
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
