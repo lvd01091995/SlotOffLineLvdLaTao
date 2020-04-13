@@ -1,0 +1,30 @@
+{
+  "ver": "2.0.0",
+  "uuid": "c0ea5520-36be-4a4b-bb9b-1bae100686a5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "ZeusSlot": {
+      "ver": "1.0.3",
+      "uuid": "129cde18-1940-465a-8553-3f69cfaa7df8",
+      "rawTextureUuid": "c0ea5520-36be-4a4b-bb9b-1bae100686a5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1334,
+      "height": 750,
+      "rawWidth": 1334,
+      "rawHeight": 750,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

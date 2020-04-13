@@ -1,5 +1,5 @@
 {
-  "actualPlatform": "iOS",
+  "actualPlatform": "Android",
   "apiLevel": "android-28",
   "appABIs": [
     "armeabi-v7a",
@@ -12,7 +12,7 @@
   "keystoreAliasPassword": "",
   "keystorePassword": "",
   "keystorePath": "",
-  "platform": "ios",
+  "platform": "android",
   "previewHeight": "720",
   "previewWidth": "1280",
   "sourceMaps": false,

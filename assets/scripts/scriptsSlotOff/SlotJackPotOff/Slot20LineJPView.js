@@ -4,11 +4,12 @@ var ZINDEX_LINE = 10
 var ZINDEX_RULE = 40
 
 
-var SPRITE_FREESPIN = 2
+var SPRITE_SPEED_NORMAL = 2
 var SPRITE_SPIN = 0
 var SPRITE_STOPSPIN = 1
 var SPRITE_STOPAUTO = 3
 var SPIRTE_AUTOSPIN = 4
+var SPRITE_SPEED_MAX = 5;
 
 var IDANIM_WILD = 3
 var IDANIM_SCATTER = 1
@@ -70,6 +71,7 @@ var Slot20LineJPView = cc.Class({
         setting: cc.Node,
         bkg_rule: cc.Node,
         animChip: cc.Node,
+        btn_maxSpeed: cc.Toggle,
 
         btn_Spin: cc.Button,
         btn_autoSpin: cc.Button,
@@ -130,10 +132,11 @@ var Slot20LineJPView = cc.Class({
         this.listMarkBet = [];
         this.listScatter = [];
         this.listCollum = [];
+        this.listPosItem = [];
 
         this.markIndex = 0;
         this.freeSpinCount = 0;
-        this.speedSpin = 0.15;
+        this.speedSpin = SPEED_NORMAL;
         this.agPlayer = 0;
         this.winType = 0;
         this.firstAnim = null;
@@ -143,8 +146,8 @@ var Slot20LineJPView = cc.Class({
         this.itemHeight = 0;
         this.scatterCount = 0;
         this.bkg_mid.opacity = 0;
-        this.bkg_Bottom.opacity = 0;
-        this.bkg_Top.opacity = 0;
+        //   this.bkg_Bottom.opacity = 0;
+        //this.bkg_Top.opacity = 0;
         this.totalWin = 0;
         this.startNum = 0;
         this.endNum = 0;
@@ -155,11 +158,12 @@ var Slot20LineJPView = cc.Class({
         this.mathCount = 0;
         this.curChip = 0;
         this.chipBonusDaily = 0;
-        this.bkg_Top.position = cc.v2(0, cc.winSize.height / 2 + 100);
-        this.bkg_Bottom.position = cc.v2(0, -cc.winSize.height / 2 - 100);
+        // this.bkg_Top.position = cc.v2(0, cc.winSize.height / 2 + 100);
+        // this.bkg_Bottom.position = cc.v2(0, -cc.winSize.height / 2 - 100);
         this.curJackPotNum = require("GameManager").getInstance().curJackPotSlot;
         this.jackPotEndNum = 0;
         this.initPosItem = cc.v2(this.parentItemNode.width / 10, this.parentItemNode.height / 2);
+        this.itemSize = cc.v2(170, 507);
         this.animPool = new cc.NodePool("animPool");
         this.blackMaskBig = this.node.getChildByName("bkg_black");
         this.countInitItem = 0;
@@ -197,19 +201,14 @@ var Slot20LineJPView = cc.Class({
 
     },
     start() {
-        // require("NetworkManager").getInstance().sendUpdateJackPot(GAME_ID.SLOT_20_LINE_JP);
-        // this.schedule(() => {
-        //     require("NetworkManager").getInstance().sendUpdateJackPot(GAME_ID.SLOT_20_LINE_JP);
-        // }, 10)
 
-        // this.lb_titleBet.string = "MaxBet
     },
     startEffect() {
         this.bkg_Top.stopAllActions();
         this.bkg_Bottom.stopAllActions();
         this.bkg_mid.stopAllActions();
-        this.bkg_Top.runAction(cc.spawn(cc.moveTo(0.5, cc.v2(0, cc.winSize.height / 2)), cc.fadeTo(0.5, 255)));
-        this.bkg_Bottom.runAction(cc.spawn(cc.moveTo(0.5, cc.v2(0, -cc.winSize.height / 2)), cc.fadeTo(0.5, 255)));
+        // this.bkg_Top.runAction(cc.spawn(cc.moveTo(0.5, cc.v2(0, 375)), cc.fadeTo(0.5, 255)));
+        // this.bkg_Bottom.runAction(cc.spawn(cc.moveTo(0.5, cc.v2(0, -375)), cc.fadeTo(0.5, 255)));
         this.bkg_mid.runAction(cc.sequence(cc.fadeTo(0.5, 255), cc.callFunc(() => {
             this.canSpin = true;
         })));
@@ -223,7 +222,7 @@ var Slot20LineJPView = cc.Class({
         this.scheduleOnce(() => {
             this.initItemSlot(data.views);
         }, 0.5);
-        this.lb_info.node.active = true;
+        //    this.lb_info.node.active = true;
         this.lb_info.string = "Press Spin To Play";
         this.payLine = data.payLine;
         this.listMarkBet = [];
@@ -298,6 +297,12 @@ var Slot20LineJPView = cc.Class({
         for (let i = 0; i < this.listItem.length; i++) {
             this.listItem[i].node.destroy();
         }
+        let initPos = cc.v2(this.itemSize.x / 2 + 7, this.itemSize.y / 2);
+        for (let i = 0; i < 5; i++) {
+            let deltaX = i * this.itemSize.x;
+            let pos = cc.v2(initPos.x + deltaX, initPos.y);
+            this.listPosItem.push(pos);
+        }
         this.listItem.length = 0;
         for (let i = 0; i < 15; i++) {
             let item1 = cc.instantiate(this.itemSlotPr).getComponent("ItemSlot20JP");
@@ -305,12 +310,13 @@ var Slot20LineJPView = cc.Class({
             let item3 = cc.instantiate(this.itemSlotPr).getComponent("ItemSlot20JP");
 
             this.initHeightItem = item1.node.height;
-            item1.node.position = cc.v2(this.initPosItem.x + 136 * delta, this.initPosItem.y);
+            //item1.node.position = cc.v2(this.initPosItem.x + 165 * delta, this.initPosItem.y);
+            item1.node.position = this.listPosItem[delta];
             this.parentItemNode.addChild(item1.node);
             this.countInitItem++;
             item1.typeItem = 1;
             item1.numCol = delta;
-            item1.setSpriteListItem(dataView[delta]);
+            // item1.setSpriteListItem(dataView[delta]);
             this.resetPosY1 = this.initPosItem.y;
             if (delta === 3) {
                 let pos = this.parentItemNode.convertToWorldSpaceAR(item1.node.position);
@@ -362,18 +368,12 @@ var Slot20LineJPView = cc.Class({
         if (!this.canSpin) {
             return
         };
-
-        // console.log("=====onClickSpin 0 " + this.listMarkBet.length + "   " + this.agPlayer)
-        // console.log("=====onClickSpin 1 ", this.listMarkBet)
-        console.log("=====isfreespin=" + this.isFreeSpin)
         if (!this.isFreeSpin) {
             if (this.clickSpinCount > 1 ||
                 this.listMarkBet.length <= 0 ||
                 (this.listMarkBet.length > 0 && this.agPlayer < this.listMarkBet[0] * 20)) return;
         }
-        console.log("=====onClickSpin")
         if (this.clickSpinCount > 0) {
-            cc.log("ClickSpin=" + this.clickSpinCount);
             if (this.isFreeSpin)
                 this.setBtnSpr(this.btn_Spin, SPRITE_FREESPIN);
             else
@@ -399,11 +399,11 @@ var Slot20LineJPView = cc.Class({
         if (this.isFreeSpin) this.curMarkBet = 500;
         Global.GameView.slotView(this.curMarkBet * 20);
         this.isStop = false;
-        this.blackMask.active = false;
+        // this.blackMask.active = false;
         for (let i = 0; i < this.listCheckStopCol.length; i++) {
             this.listCheckStopCol[i] = false;
         }
-        this.lb_info.node.active = true;
+        // this.lb_info.node.active = true;
         this.lb_info.string = "Playing 20 lines. Good luck!";
         let acSpin = cc.callFunc(() => {
             this.playSoundEff("wheelspin");
@@ -422,7 +422,6 @@ var Slot20LineJPView = cc.Class({
                     let acRun = cc.sequence(acRunUp, cc.spawn(acSetBlur, acRunDown));
                     let acCheck = cc.callFunc(() => {
                         item.typeItem--;
-                        cc.log("listcheck stop==" + this.listCheckStopCol[i]);
                         if (!this.listCheckStopCol[i] && item.numCol === i) { //running
                             if (item.typeItem < 0) { //reset item position
                                 item.node.position = cc.v2(item.node.position.x, this.resetPosY2);
@@ -430,8 +429,8 @@ var Slot20LineJPView = cc.Class({
                                 //if (this.isCheckScatterItem3 && item.numCol > 2)
                                 item.setRandomId(true);
                             }
-                            let speed = this.speedSpin;
-                            if (i === 4 && !this.isAutoSpin)
+                            let speed = this.btn_maxSpeed.isChecked ? SPEED_AUTO : SPEED_NORMAL;
+                            if (i === 4 && !this.btn_maxSpeed.isChecked)
                                 speed = SPEED_NORMAL;
                             let acRun = cc.moveTo(speed, cc.v2(item.node.position.x, item.node.position.y - this.initHeightItem));
                             item.node.runAction(cc.sequence(acRun, acCheck));
@@ -452,9 +451,8 @@ var Slot20LineJPView = cc.Class({
                                 item.node.position = cc.v2(item.node.position.x, this.resetPosY3);
                                 item.typeItem = 3;
                             }
-                            let speed = this.isAutoSpin ? SPEED_AUTO : SPEED_NORMAL;
+                            let speed = this.speedSpin;
                             if (i === 2 && this.isCheckScatterItem3) {
-                                this.speedSpin = SPEED_AUTO;
                                 timedel = 2;
                                 cc.loader.loadRes(ResDefine.slot_speedspin_1010, sp.SkeletonData, (err, aniClip) => {
                                     if (err) {
@@ -525,21 +523,21 @@ var Slot20LineJPView = cc.Class({
         // this.stateGame = STATE_GAME.PLAYING;     Ï
     },
     onClickAutoSpin() {
-        // if (!this.isAutoSpin) require('SMLSocketIO').getInstance().emitSIOCCC(cc.js.formatStr("ClickAutoSpin_%s", require('GameManager').getInstance().getCurrentSceneName()));
-        // else require('SMLSocketIO').getInstance().emitSIOCCC(cc.js.formatStr("ClickStopAutoSpin_%s", require('GameManager').getInstance().getCurrentSceneName()));
         this.isAutoSpin = !this.isAutoSpin;
-        this.speedSpin = SPEED_AUTO;
         let sprite = this.isAutoSpin ? SPRITE_STOPAUTO : SPIRTE_AUTOSPIN;
         this.setBtnSpr(this.btn_autoSpin, sprite);
         if (!this.isStop) {
             require('SoundManager1').instance.playButton();
             return;
         }
-
-        // console.log("-=-=-=>>   " + this.curMarkBet)
-        // console.log("-=-=-=>>   " + this.agPlayer)
         if (this.isStop && this.curMarkBet > 0 && this.agPlayer >= this.curMarkBet * 20) {
             this.onClickSpin();
+        }
+    },
+    onClickMaxSpeed() {
+        this.speedSpin = this.btn_maxSpeed.isChecked ? SPEED_AUTO : SPEED_NORMAL;
+        if (this.isStop && this.btn_maxSpeed.isChecked) {
+            this.onClickAutoSpin();
         }
     },
     handleSpin(data) {
@@ -639,10 +637,13 @@ var Slot20LineJPView = cc.Class({
             return;
         }
         setTimeout(() => {
-            this.btn_Spin.interactable = !this.isAutoSpin;
-            if (!this.isAutoSpin) {
-                this.setBtnSpr(this.btn_Spin, SPRITE_STOPSPIN);
+            if (this.node) {
+                this.btn_Spin.interactable = !this.isAutoSpin;
+                if (!this.isAutoSpin) {
+                    this.setBtnSpr(this.btn_Spin, SPRITE_STOPSPIN);
+                }
             }
+
         }, 300);
         this.firstAnim.node.active = false;
         this.firstAnim.animation.skeletonData = null;
@@ -662,7 +663,7 @@ var Slot20LineJPView = cc.Class({
                         return;
                     }
                     this.playSoundEff("showline");
-                    this.turnOffMiniResult();
+                    //    this.turnOffMiniResult();
                     this.turnOffAnim();
                     for (let i = 0; i < this.listLineRect.length; i++) {
                         this.listLineRect[i].active = false;
@@ -675,9 +676,13 @@ var Slot20LineJPView = cc.Class({
                             this.listWinLineNode[i].node.active = true;
                         }
                     }, 50);
+                    let countWildCheck = this.checkIndexToShowAnim(this.winningLine[i].lineWinId);
                     let listPos = [];
                     for (let j = 0; j < lineWin.length; j++) { //[1,2,1,2,1,];
                         let item = this.listOriginItem[j].getComponent("ItemSlot20JP");
+                        item.showGrayColor();
+                        if (j <= countWildCheck)
+                            item.showItemEff(lineWin[j]);
                         let indexItemSon = lineWin[j]
                         let pos = item.getWordPosItem(item.listItem[indexItemSon]);
                         listPos.push(pos);
@@ -693,8 +698,8 @@ var Slot20LineJPView = cc.Class({
     showAllWinLine() {
         this.updateMoney();
         this.blackMaskBig.active = false;
-        if (this.listWinLineNode.length !== 0)
-            this.blackMask.active = true;
+        // if (this.listWinLineNode.length !== 0)
+        //    this.blackMask.active = true;
         this.firstAnim.node.active = false;
         this.firstAnim.animation.skeletonData = null;
         if (this.listWinLineNode.length > 1) {
@@ -705,7 +710,7 @@ var Slot20LineJPView = cc.Class({
             }
         }
         this.turnOffAnim();
-        this.turnOffMiniResult();
+        //   this.turnOffMiniResult();
         this.isStop = true;
 
     },
@@ -753,7 +758,7 @@ var Slot20LineJPView = cc.Class({
                 skeData: skeData
             }
             this.skeData.push(data);
-            let animName = "animations";
+            let animName = "animation";
             this.setInfoAnim(this.firstAnim, skeData, cc.v2(0, 0), cc.v2(cc.winSize.width / 1280, cc.winSize.height / 720));
             this.firstAnim.node.parent = this.node;
             this.firstAnim.playAnimation2(animName, true);
@@ -763,7 +768,8 @@ var Slot20LineJPView = cc.Class({
             lbMoney.opacity = 255;
             lbMoney.setScale(0.8);
             lbMoney.getComponent(cc.Label);
-            lbMoney.position = cc.v2(0, -70 * (cc.winSize.height / 720));
+        //    lbMoney.position = cc.v2(0, -70 * (cc.winSize.height / 720));
+        lbMoney.position = cc.v2(0, -279);
             cc.log("jackpot win==" + this.jackPotWin);
             this.createEffNumRun(0, this.jackPotWin, timeShow, lbMoney.getComponent(cc.Label));
             lbMoney.runAction(cc.sequence(cc.scaleTo(timeShow, 1.2),
@@ -957,7 +963,6 @@ var Slot20LineJPView = cc.Class({
         let timeShowFiveOfaKind = 0;
         let timeShowWildWin = 0;
         let timeShowAllLine = 0;
-
         if (this.listWinLineNode.length > 1)
             timeShowAllLine = this.listWinLineNode.length * 0.15 + 0.7;
         //if (timeShowAllLine < 1.5 && timeShowAllLine > 0) timeShowAllLine = 1.5;
@@ -1013,8 +1018,9 @@ var Slot20LineJPView = cc.Class({
                 this.showAnimHugeWin();
             }
         });
-        let acShow = cc.sequence(acShowAnimScatter,
-            acShowWildWinInLine, cc.delayTime(timeShowWildWin),
+        let acShow = cc.sequence(
+            //acShowAnimScatter,
+            //    acShowWildWinInLine, cc.delayTime(timeShowWildWin),
             acShowAllWinLine, cc.delayTime(timeShowAllLine),
             acShowAnimJackPot, cc.delayTime(timeShowJackPot),
             acShowAnimFiveOfaKind, cc.delayTime(timeShowFiveOfaKind),
@@ -1038,7 +1044,7 @@ var Slot20LineJPView = cc.Class({
         line.node.active = false;
         this.listWinLineNode.push(line);
     },
-    createLine(color, isRect, lineWidth = 5) {
+    createLine(color, isRect, lineWidth = 7) {
         let lineWin = new cc.Node();
         lineWin.name = "Line";
         let line = lineWin.addComponent(cc.Graphics);
@@ -1055,7 +1061,7 @@ var Slot20LineJPView = cc.Class({
         let count = this.checkIndexToShowAnim(listId);
         for (let i = 0; i <= count; i++) {
             // this.showItemAnim(i, listPos[i], listId[i], agWin);
-            this.setItemMiniResult(listId[i], i, agWin);
+            //  this.setItemMiniResult(listId[i], i, agWin);
             let posMove = cc.v2(0, 0);
             let posRect = listPos[i];
             //  this.drawRect(posRect, color);
@@ -1080,7 +1086,7 @@ var Slot20LineJPView = cc.Class({
         return count;
     },
     showItemAnim(index, pos, id, agWin, isTurnOnMask = true) {
-        this.setItemMiniResult(id, index, agWin);
+        //  this.setItemMiniResult(id, index, agWin);
         // let itemAnim = this.listItemAnim[index];
         let itemAnim = this.getAnimFromPool(this.listItemAnim);
         let idAnim = id;
@@ -1264,9 +1270,10 @@ var Slot20LineJPView = cc.Class({
         if (require('GameManager').getInstance().user.vip < 1)
             //require("NetworkManager").getInstance().sendUpVip();
             this.node.stopAllActions();
-        this.blackMask.active = false;
+        //this.blackMask.active = false;
         this.destroyLine();
         this.turnOffAnim(true);
+        this.turnOffItemEff();
         this.winningLine.length = 0;
         this.clickSpinCount = 0;
         this.listAnimId.length = 0;
@@ -1282,7 +1289,7 @@ var Slot20LineJPView = cc.Class({
         if (this.isFreeSpin)
             this.setBtnSpr(this.btn_Spin, SPRITE_FREESPIN);
         else this.setBtnSpr(this.btn_Spin, SPRITE_SPIN);
-        this.lb_info.node.active = true;
+        //   this.lb_info.node.active = true;
         let canSpin = this.agPlayer >= this.listMarkBet[0] * 20 ? true : false;
         if (this.isFreeSpin) {
             canSpin = true;
@@ -1300,21 +1307,27 @@ var Slot20LineJPView = cc.Class({
         this.lb_titleWin.string = "Last Win";
         if (this.isAutoSpin && this.agPlayer >= this.listMarkBet[0] * 20) {
             this.lb_info.string = "Playing 20 lines. Good luck!";
-            this.speedSpin = SPEED_AUTO;
             this.setBtnSpr(this.btn_autoSpin, SPRITE_STOPAUTO);
             this.onClickSpin();
         }
         else
             this.speedSpin = SPEED_NORMAL;
-        this.itemMiniResult.active = false;
+        // this.itemMiniResult.active = false;
         this.setMarkBetInfo();
         this.releaseAtsset();
+    },
+    turnOffItemEff() {
+        let i = 0;
+        let size = this.listOriginItem.length;
+        for (i; i < size; i++) {
+            this.listOriginItem[i].getComponent("ItemSlot20JP").offItemEff();
+        }
+
     },
     setBtnSpr(button, index) {
         button.node.getComponent(cc.Sprite).spriteFrame = this.listSprBtn[index];
     },
     onClickPlusMarkBet() {
-        require('SMLSocketIO').getInstance().emitSIOCCC(cc.js.formatStr("ClickAddChipBet_%s", require('GameManager').getInstance().getCurrentSceneName()));
         require('SoundManager1').instance.playButton();
         if (this.isFreeSpin) this.listMarkBet = this.dataListBetDefault;
         if (!this.isStop || this.listMarkBet.length <= 1 || this.isAutoSpin) return;
@@ -1327,13 +1340,10 @@ var Slot20LineJPView = cc.Class({
         this.curMarkBet = this.listMarkBet[this.markIndex];
         this.lb_markBet.string = require("GameManager").getInstance().formatMoney(this.curMarkBet * 20);
 
-        console.log("2:  " + this.lb_markBet.string)
-
-        this.lb_titleBet.string = this.markIndex >= this.listMarkBet.length - 1 ? "MaxBet" : "Bet"
+        // this.lb_titleBet.string = this.markIndex >= this.listMarkBet.length - 1 ? "MaxBet" : "Bet"
         this.setMarkBetInfo();
     },
     onClickMinusMarkBet() {
-        require('SMLSocketIO').getInstance().emitSIOCCC(cc.js.formatStr("ClickSubChipBet_%s", require('GameManager').getInstance().getCurrentSceneName()));
         require('SoundManager1').instance.playButton();
         if (!this.isStop || this.listMarkBet.length <= 1 || this.isAutoSpin) return;
         if (this.isFreeSpin) this.listMarkBet = this.dataListBetDefault;
@@ -1347,22 +1357,13 @@ var Slot20LineJPView = cc.Class({
         this.curMarkBet = this.listMarkBet[this.markIndex];
         this.lb_markBet.string = require("GameManager").getInstance().formatMoney(this.curMarkBet * 20);
 
-        console.log("3:  " + this.lb_markBet.string)
-
         this.setMarkBetInfo();
     },
     setMarkBetInfo() {
-        cc.log("mark index=" + this.markIndex)
         if (this.markIndex < this.listMarkBet.length - 1) {
-            this.bkg_TotalBet.active = true;
-            this.bkg_Maxbet.active = false;
-            // this.lb_markBet.node.position = cc.v2(5, -14);
             this.lb_titleBet.string = "Bet"
         }
         else {
-            this.bkg_TotalBet.active = false;
-            this.bkg_Maxbet.active = true;
-            //  this.lb_markBet.node.position = cc.v2(5, -11);
             this.lb_titleBet.string = "MaxBet";
         }
     },
@@ -1564,7 +1565,10 @@ var Slot20LineJPView = cc.Class({
         cc.log("On Click Back");
         require('SoundManager1').instance.playButton();
         this.setting.active = true;
-        // this.node.destroy();
+        this.node.destroy();
+        Global.GameView.btnPlay.interactable = true;
+        Global.GameView.isInitGame = false;
+
     },
     onClickRule() {
         this.bkg_rule.zIndex = ZINDEX_LINE + 1;

@@ -595,7 +595,7 @@ var ResDefine = {
     jp_9:"game/1010/Slot20JP/05/skeleton",
     jp_4_7:"game/1010/Slot20JP/06-09/skeleton",
     jp_0_3:"game/1010/Slot20JP/10-12/skeleton",
-    jp_jpwin:"game/1010/Slot20JP/JackPot/skeleton",
+    jp_jpwin:"game/1010/Slot20JP/JackPot/no hu",
 
     ////================Animation Slot==========================//
 

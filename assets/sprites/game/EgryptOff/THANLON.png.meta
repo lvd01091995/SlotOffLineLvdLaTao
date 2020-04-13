@@ -1,0 +1,30 @@
+{
+  "ver": "2.0.0",
+  "uuid": "82970d16-07d6-434c-98b7-2ab2fd5e994a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "THANLON": {
+      "ver": "1.0.3",
+      "uuid": "82d1a3de-57e0-403a-bad9-36fd76df8169",
+      "rawTextureUuid": "82970d16-07d6-434c-98b7-2ab2fd5e994a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 398,
+      "height": 117,
+      "rawWidth": 398,
+      "rawHeight": 117,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

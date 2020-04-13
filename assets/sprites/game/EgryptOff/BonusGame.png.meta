@@ -1,0 +1,30 @@
+{
+  "ver": "2.0.0",
+  "uuid": "a8513567-4db3-45af-aad2-4c4797fca1b4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "BonusGame": {
+      "ver": "1.0.3",
+      "uuid": "1aea2422-26c4-4ab6-9170-34aad40c858c",
+      "rawTextureUuid": "a8513567-4db3-45af-aad2-4c4797fca1b4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 536,
+      "height": 455,
+      "rawWidth": 536,
+      "rawHeight": 455,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

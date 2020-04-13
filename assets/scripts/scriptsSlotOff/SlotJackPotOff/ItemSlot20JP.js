@@ -6,9 +6,9 @@ cc.Class({
     properties: {
         timeMove: 0,
         sprAtlas: cc.SpriteAtlas,
-        sprBlur: cc.SpriteAtlas,
+        sprAtlasBlur: cc.SpriteAtlas,
         listItem: [cc.Node],
-        itemBlur: [cc.Node],
+        itemBlur: cc.Node,
         itemMain: [cc.Node],
         numCol: null,
         typeItem: null,
@@ -22,49 +22,59 @@ cc.Class({
         this.posReset = cc.v2(this.node.position.x, this.node.position.y + this.node.width * 3);
         this.Slot20JPGameView = Global.GameView;
         this.isHaveJPItem = false;
-        this.startPosItemBlur1 = this.itemBlur[0].position;
-        this.startPosItemBlur3 = this.itemBlur[2].position;
         for (let i = 0; i < this.listItem.length; i++) {
-            this.listItem[i].setContentSize(cc.size(125, 126));
+            this.listItem[i].setContentSize(130, 130);
         }
-        for (let i = 0; i < this.itemMain.length; i++) {
-            this.itemMain[i].setContentSize(cc.size(126, 126));
-            this.itemBlur[i].setContentSize(cc.size(125, 140));
-        }
+
     },
     getRanNum(min_value, max_value) {
         let random_number = Math.random() * (max_value - min_value) + min_value;
         return Math.floor(random_number);
     },
     setRandomId(isTurnOnSon) {
-        let ranId1 = this.getRanNum(0, 13);
-        let ranId2 = this.getRanNum(0, 13);
-        let ranId3 = this.getRanNum(0, 13);
+        let ranId1 = this.getRanNum(1, 8);
+        let ranId2 = this.getRanNum(1, 8);
+        let ranId3 = this.getRanNum(1, 8);
         let listdata = [ranId1, ranId2, ranId3];
         this.setSpriteListItem(listdata, isTurnOnSon);
     },
     setSpriteListItem(listData, isTurnOnSon = false) {
         for (let i = 0; i < this.listItem.length; i++) {
             let nameSpr = listData[i];
-            this.setSprSonItem(i, nameSpr, isTurnOnSon);
+            this.listItem[i].getComponent(cc.Sprite).spriteFrame = this.sprAtlas.getSpriteFrame(nameSpr);
+            this.listItem[i].active = !isTurnOnSon;
+           // this.itemMain[i].setContentSize(130, 130);
+        }
+        this.itemBlur.active = isTurnOnSon;
+        if (isTurnOnSon) {
+            let randomBlur = this.getRanNum(1, 4);
+            this.itemBlur.getComponent(cc.Sprite).spriteFrame = this.sprAtlasBlur.getSpriteFrame("blur" + randomBlur);
         }
         this.listIdView = listData.slice();
-    },
-    setSprSonItem(index, nameSpr, isTurnOnSon) { //set sprite cho item con.
-        let itemBlur = this.itemBlur[index];
-        let itemMain = this.itemMain[index];
-        itemBlur.getComponent(cc.Sprite).spriteFrame = this.sprBlur.getSpriteFrame(nameSpr);
-        if (this.Slot20JPGameView.gameView.speedSpin === 0.1) {
-           // itemBlur.active = isTurnOnSon;
-           // itemMain.active = !isTurnOnSon;
-        }
-        itemMain.getComponent(cc.Sprite).spriteFrame = this.sprAtlas.getSpriteFrame(nameSpr);
-
     },
     getWordPosItem(item) {// Lay Toa do cua item con
         let posWorld = this.node.convertToWorldSpaceAR(item);
         let posInGameView = this.Slot20JPGameView.gameView.node.convertToNodeSpaceAR(posWorld);
         return posInGameView;
+    },
+    showItemEff(index) {
+        this.showGrayColor();
+        this.listItem[index].stopAllActions();
+        this.listItem[index].color = cc.Color.WHITE;
+        this.listItem[index].runAction(cc.repeatForever(cc.sequence(cc.scaleTo(0.3, 1.1), cc.scaleTo(0.3, 1.0))));
+    },
+    offItemEff() {
+        for (let i = 0; i < this.listItem.length; i++) {
+            this.listItem[i].stopAllActions();
+            this.listItem[i].scale = 1;
+            this.listItem[i].color = cc.Color.WHITE;
+        }
+    },
+    showGrayColor() {
+        for (let i = 0; i < this.listItem.length; i++) {
+            this.listItem[i].stopAllActions();
+            this.listItem[i].color = cc.Color.GRAY;
+        }
     },
     getScatterItem() {
         let data = {

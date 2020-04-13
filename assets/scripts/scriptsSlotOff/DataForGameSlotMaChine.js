@@ -39,14 +39,15 @@ var DataForGameSlotMaChine = cc.Class({
         }
         this.gameView = null;
         this.showSlotGame();
+        this.isInitGame = false;
     },
 
 
     start() {
         console.log('------> js size X ', cc.winSize.width)
         console.log('------> js size Y ', cc.winSize.height)
-        this.btnPlay.node.x = cc.winSize.width * .225
-        this.btnPlay.node.y = -cc.winSize.height * .225
+        // this.btnPlay.node.x = cc.winSize.width * .225
+        // this.btnPlay.node.y = -cc.winSize.height * .225
     },
 
     showSlotGame() {
@@ -57,11 +58,18 @@ var DataForGameSlotMaChine = cc.Class({
     },
     initSlot() {
         this.baseReels = [];
+        // this.baseReels.push([9, 4, 1, 1, 3, 2, 5, 9, 9, 4, 2, 7, 8, 9, 5, 2, 6, 10, 9, 5, 1, 3, 9, 4, 2, 7, 8, 9, 5, 2, 6, 9, 9, 5, 2, 4, 10, 9, 5, 1, 7, 9, 2, 5]);
+        // this.baseReels.push([4, 1, 1, 2, 7, 9, 9, 5, 1, 3, 8, 4, 2, 6, 4, 4, 9, 3, 1, 8, 4, 2, 6, 9, 10, 4, 1, 3, 2, 4, 4, 9, 7, 1, 8, 2, 4, 9, 9, 1, 6, 2, 8, 9]);
+        // this.baseReels.push([1, 7, 1, 5, 1, 7, 8, 6, 9, 3, 4, 4, 1, 6, 9, 5, 2, 7, 10, 1, 3, 2, 8, 1, 3, 9, 9, 5, 1, 3, 10, 6, 9, 3, 8, 7, 1, 6, 4, 3, 2, 5, 9, 3]);
+        // this.baseReels.push([5, 2, 1, 3, 9, 6, 1, 5, 4, 2, 4, 9, 10, 3, 1, 7, 3, 2, 1, 5, 4, 6, 9, 5, 4, 1, 3, 7, 2, 4, 8, 9, 3, 6, 1, 4, 4, 2, 5, 7, 9, 4, 9, 1]);
+        // this.baseReels.push([7, 9, 1, 4, 6, 1, 9, 5, 10, 2, 7, 3, 8, 9, 4, 9, 1, 6, 5, 10, 2, 8, 3]);
+
         this.baseReels.push([0, 4, 11, 1, 3, 2, 5, 9, 0, 4, 2, 7, 8, 0, 5, 2, 6, 10, 0, 5, 1, 3, 9, 4, 2, 7, 8, 0, 5, 2, 6, 9, 0, 5, 2, 4, 10, 0, 5, 1, 7, 9, 2, 5]);
         this.baseReels.push([4, 1, 11, 2, 7, 0, 9, 5, 1, 3, 8, 4, 2, 6, 12, 4, 0, 3, 1, 8, 4, 2, 6, 0, 10, 4, 1, 3, 2, 12, 4, 0, 7, 1, 8, 2, 4, 0, 9, 1, 6, 2, 8, 0]);
         this.baseReels.push([1, 7, 11, 5, 1, 7, 8, 6, 0, 3, 12, 4, 1, 6, 9, 5, 2, 7, 10, 1, 3, 2, 8, 1, 3, 0, 9, 5, 1, 3, 10, 6, 0, 3, 8, 7, 1, 6, 12, 3, 2, 5, 9, 3]);
         this.baseReels.push([5, 2, 11, 3, 0, 6, 1, 5, 12, 2, 4, 0, 10, 3, 1, 7, 3, 2, 11, 5, 4, 6, 0, 5, 12, 1, 3, 7, 2, 4, 8, 0, 3, 6, 1, 4, 12, 2, 5, 7, 0, 4, 9, 1]);
         this.baseReels.push([7, 0, 11, 4, 6, 1, 9, 5, 10, 2, 7, 3, 8, 0, 4, 9, 1, 6, 5, 10, 2, 8, 3]);
+
 
         this.payLine = [];
         this.payLine.push([1, 1, 1, 1, 1]);  //1
@@ -218,15 +226,17 @@ var DataForGameSlotMaChine = cc.Class({
 
     showGame() {
         // cc.sys.localStorage.removeItem('agSlotOffline')
-        // this.btnPlay.interactable = false;
-        cc.loader.loadRes('prefab/Slot20JackPot', (err, prefab) => {
-            this.gameView = cc.instantiate(prefab).getComponent("Slot20LineJPView");
-            this.node.addChild(this.gameView.node);
-            this.gameView.node.name = "GameView";
-            this.initSlot();
-            this.creatGame();
-        });
-
+        this.btnPlay.interactable = false;
+        if (!this.isInitGame) {
+            cc.loader.loadRes('prefab/Slot20JackPot', (err, prefab) => {
+                this.gameView = cc.instantiate(prefab).getComponent("Slot20LineJPView");
+                this.node.addChild(this.gameView.node);
+                this.gameView.node.name = "GameView";
+                this.initSlot();
+                this.creatGame();
+            });
+        }
+        this.isInitGame = true;
     },
 
     getData() {
@@ -287,7 +297,7 @@ var DataForGameSlotMaChine = cc.Class({
         this.viewSlot = [];
         this.viewSlot = tmp;
         // [[2, 6, 10], [4, 2, 6], [8, 6, 0], [1, 4, 12], [6, 5, 10]]
-         //this.viewSlot = [[2, 6, 10], [11, 2, 6], [8, 12, 0], [1, 4, 12], [6, 5, 10]];
+        //this.viewSlot = [[2, 6, 10], [11, 2, 6], [8, 12, 0], [1, 4, 12], [6, 5, 10]];
         let cout12 = 0;
         for (let i = 1; i < this.viewSlot.length - 1; i++) {
             if (this.viewSlot[i].includes(12)) {
