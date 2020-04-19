@@ -9,7 +9,6 @@ cc.Class({
         sprAtlasBlur: cc.SpriteAtlas,
         listItem: [cc.Node],
         itemBlur: cc.Node,
-        itemMain: [cc.Node],
         numCol: null,
         typeItem: null,
         listIdView: [],
@@ -19,36 +18,37 @@ cc.Class({
 
     onLoad() {
         this.startPos = this.node.position;
-        this.posReset = cc.v2(this.node.position.x, this.node.position.y + this.node.width * 3);
         this.Slot20JPGameView = Global.GameView;
         this.isHaveJPItem = false;
-        for (let i = 0; i < this.listItem.length; i++) {
-            this.listItem[i].setContentSize(130, 130);
-        }
 
+    },
+    update() {
     },
     getRanNum(min_value, max_value) {
         let random_number = Math.random() * (max_value - min_value) + min_value;
         return Math.floor(random_number);
     },
     setRandomId(isTurnOnSon) {
-        let ranId1 = this.getRanNum(1, 8);
-        let ranId2 = this.getRanNum(1, 8);
-        let ranId3 = this.getRanNum(1, 8);
+        let ranId1 = this.getRanNum(0, 13);
+        let ranId2 = this.getRanNum(0, 13);
+        let ranId3 = this.getRanNum(0, 13);
         let listdata = [ranId1, ranId2, ranId3];
         this.setSpriteListItem(listdata, isTurnOnSon);
     },
     setSpriteListItem(listData, isTurnOnSon = false) {
-        for (let i = 0; i < this.listItem.length; i++) {
-            let nameSpr = listData[i];
-            this.listItem[i].getComponent(cc.Sprite).spriteFrame = this.sprAtlas.getSpriteFrame(nameSpr);
+        for (let i = 0; i < 3; i++) {
+            if (!isTurnOnSon) {
+                let nameSpr = listData[i];
+                this.listItem[i].getComponent(cc.Sprite).spriteFrame = this.sprAtlas.getSpriteFrame(nameSpr);
+                this.listItem[i].setContentSize(cc.size(130, 130));
+            }
             this.listItem[i].active = !isTurnOnSon;
-           // this.itemMain[i].setContentSize(130, 130);
         }
         this.itemBlur.active = isTurnOnSon;
         if (isTurnOnSon) {
             let randomBlur = this.getRanNum(1, 4);
             this.itemBlur.getComponent(cc.Sprite).spriteFrame = this.sprAtlasBlur.getSpriteFrame("blur" + randomBlur);
+            cc.log("set Blur");
         }
         this.listIdView = listData.slice();
     },

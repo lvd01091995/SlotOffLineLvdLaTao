@@ -618,7 +618,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 2.586
+      "y": 7
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -636,12 +636,14 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 40,
-    "_fontSize": 35,
-    "_lineHeight": 40,
+    "_actualFontSize": 50,
+    "_fontSize": 50,
+    "_lineHeight": 50,
     "_enableWrapText": false,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "9c45b6a9-28f9-49b2-b6e6-a8b3e5eb3a34"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_N$string": "...",
     "_N$horizontalAlign": 1,
@@ -1303,8 +1305,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 100
+      "width": 61,
+      "height": 63
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -1312,8 +1314,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 384,
-      "y": 237.5
+      "x": 389,
+      "y": 225
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1331,10 +1333,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "0191f456-5b6f-4a51-b853-986263a5afd5"
+      "__uuid__": "e42c421b-68d7-4102-ae49-14c976609088"
     },
     "_type": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -1437,8 +1439,8 @@
     "_target": null,
     "_alignFlags": 33,
     "_left": 0,
-    "_right": -34,
-    "_top": -37.5,
+    "_right": -19.5,
+    "_top": -6.5,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -1471,7 +1473,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "3ea44724-4d30-4730-b849-3cb6f419bfa5"
+      "__uuid__": "82654908-1b76-4423-994f-9e0f71320256"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1651,12 +1653,14 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 40,
-    "_fontSize": 40,
+    "_actualFontSize": 50,
+    "_fontSize": 50,
     "_lineHeight": 50,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "9c45b6a9-28f9-49b2-b6e6-a8b3e5eb3a34"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_N$string": "...",
     "_N$horizontalAlign": 1,
@@ -1859,7 +1863,8 @@
     "dialogType": null,
     "functionCallback_1": null,
     "functionCallback_2": null,
-    "functionCallback_3": null
+    "functionCallback_3": null,
+    "isAds": false
   },
   {
     "__type__": "cc.Button",

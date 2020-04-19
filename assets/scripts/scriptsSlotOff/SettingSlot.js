@@ -12,14 +12,12 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        bkg: cc.Node,
         toggle: cc.Toggle,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.bkg.scale = cc.v2(0, 0);
         var sound = cc.sys.localStorage.getItem("sound");
         if (sound === "on" || sound == null ) {
             this.toggle.isChecked=true;
@@ -29,7 +27,6 @@ cc.Class({
         }
     },
     onEnable() {
-        this.bkg.runAction(cc.scaleTo(0.3, 1, 1).easing(cc.easeBackOut()));
     },
     start() {
 
@@ -50,11 +47,7 @@ cc.Class({
     },
     onClose() {
         require('SoundManager1').instance.playButton();
-        this.bkg.stopAllActions();
-        this.bkg.runAction(cc.sequence(cc.scaleTo(0.3, 0.0).easing(cc.easeBackIn()),
-            cc.callFunc(() => {
-                this.node.active = false;
-            })));
+       
     },
     onClickBack() {
         require('SoundManager1').instance.turnOffSFX();

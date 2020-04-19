@@ -40,6 +40,7 @@ var DataForGameSlotMaChine = cc.Class({
         this.gameView = null;
         this.showSlotGame();
         this.isInitGame = false;
+        Global.GameView= this;
     },
 
 

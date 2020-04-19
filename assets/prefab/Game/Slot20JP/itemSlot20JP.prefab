@@ -141,7 +141,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "ed7b6696-11f5-47c3-add0-6b2ed1dad627"
+      "__uuid__": "c145de9c-812c-457d-b065-75ebfc5bdfce"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -234,7 +234,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "c2f783a7-f019-457d-8fc4-7c359de17af2"
+      "__uuid__": "6d9f87a7-cce7-4e7a-a24c-1831a317b0b1"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -250,7 +250,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": {
-      "__uuid__": "a36d95bc-c158-4910-a60e-c68cee744ba2"
+      "__uuid__": "b03620f5-8f87-4382-b237-47ad514ffc28"
     }
   },
   {
@@ -327,7 +327,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "7fa45480-7164-4cd6-a377-304813070b04"
+      "__uuid__": "c76dcd6e-d134-4f0d-a34d-d4da08c089e7"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -343,7 +343,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": {
-      "__uuid__": "a36d95bc-c158-4910-a60e-c68cee744ba2"
+      "__uuid__": "b03620f5-8f87-4382-b237-47ad514ffc28"
     }
   },
   {
@@ -510,17 +510,6 @@
     "itemBlur": {
       "__id__": 11
     },
-    "itemMain": [
-      {
-        "__id__": 2
-      },
-      {
-        "__id__": 5
-      },
-      {
-        "__id__": 8
-      }
-    ],
     "numCol": null,
     "typeItem": null,
     "listIdView": []
