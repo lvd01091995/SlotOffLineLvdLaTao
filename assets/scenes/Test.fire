@@ -71,20 +71,20 @@
         "__id__": 23
       },
       {
-        "__id__": 35
+        "__id__": 34
       },
       {
-        "__id__": 37
+        "__id__": 36
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 39
+        "__id__": 38
       },
       {
-        "__id__": 40
+        "__id__": 39
       }
     ],
     "_prefab": null,
@@ -842,9 +842,7 @@
         "__id__": 33
       }
     ],
-    "_prefab": {
-      "__id__": 34
-    },
+    "_prefab": null,
     "_id": "b6Cm4PXY1GMZExXBSLA6tR",
     "_opacity": 255,
     "_color": {
@@ -944,7 +942,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "athur",
+    "_name": "KingAthur",
     "_objFlags": 0,
     "_parent": {
       "__id__": 23
@@ -958,7 +956,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "c10l2uzw5Bi4fhh2Vn0Oyn",
+    "_id": "bc9btWpDhL+67NVTrIsnnF",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -975,17 +973,17 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
-      "height": 500
+      "width": 0,
+      "height": 0
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
+    "_scaleX": 1.28,
+    "_scaleY": 1.28,
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 52
+      "y": -34.4
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -995,30 +993,24 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "sp.Skeleton",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 26
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "bf7b109d-c8b1-4b97-81ff-ed9f71edecee"
+    "_paused": false,
+    "defaultSkin": "",
+    "defaultAnimation": "animation",
+    "loop": true,
+    "_premultipliedAlpha": true,
+    "_N$skeletonData": {
+      "__uuid__": "22e18e40-e5a3-4c18-9ef8-789271acd90c"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
+    "_N$timeScale": 1,
+    "_N$debugSlots": false,
+    "_N$debugBones": false
   },
   {
     "__type__": "cc.Node",
@@ -1209,15 +1201,6 @@
     "_enabled": true
   },
   {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 23
-    },
-    "asset": null,
-    "fileId": "f0TliqaBpNE4ZIbIcb89AL",
-    "sync": false
-  },
-  {
     "__type__": "cc.Node",
     "_name": "AudioBkg",
     "_objFlags": 0,
@@ -1229,7 +1212,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 36
+        "__id__": 35
       }
     ],
     "_prefab": null,
@@ -1274,7 +1257,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 35
+      "__id__": 34
     },
     "_enabled": true,
     "_clip": {
@@ -1298,7 +1281,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 38
+        "__id__": 37
       }
     ],
     "_prefab": null,
@@ -1343,11 +1326,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 37
+      "__id__": 36
     },
     "_enabled": true,
     "audioSource": {
-      "__id__": 36
+      "__id__": 35
     },
     "soundGamelist": {
       "__uuid__": "56b5e09e-77d9-450a-8ac5-cb7d05aa0ea2"

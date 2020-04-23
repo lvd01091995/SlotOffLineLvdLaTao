@@ -100,9 +100,16 @@ var HotUpdate = cc.Class({
         break;
       case jsb.EventAssetsManager.UPDATE_FAILED:
         console.log("Update failed. " + event.getMessage());
-        this._am.downloadFailedAssets();
-        this._updating = false;
-        this._canRetry = true;
+        this.countFail++;
+        if (this.countFail < 5) {
+          this._am.downloadFailedAssets();
+          this._updating = false;
+          this._canRetry = true;
+        } else {
+           jsb.fileUtils.removeDirectory(this._storagePath);
+          failed = true;
+          this.countFail = 0;
+        }
         break;
       case jsb.EventAssetsManager.ERROR_UPDATING:
         console.log(
@@ -137,11 +144,11 @@ var HotUpdate = cc.Class({
       var searchPaths = jsb.fileUtils.getSearchPaths();
       var newPaths = this._am.getLocalManifest().getSearchPaths();
 
-      console.log(JSON.stringify(newPaths));
+      //console.log(JSON.stringify(newPaths));
 
       Array.prototype.unshift.apply(searchPaths, newPaths);
       cc.sys.localStorage.setItem(
-        "HotUpdateSearchPaths",
+        "SearchAssets",
         JSON.stringify(searchPaths)
       );
       jsb.fileUtils.setSearchPaths(searchPaths);
@@ -221,11 +228,11 @@ var HotUpdate = cc.Class({
 
   // use this for initialization
   showSlotGame() {
-    cc.log("Chay vao show slot game");
     this.slotView.getComponent("DataForGameSlotMaChine").showSlotGame();
   },
   onLoad() {
     HotUpdate.instance = this;
+    this.countFail = 0
     this.versionA = null;
     this.versionB = null;
     let _this = this;
@@ -291,9 +298,6 @@ var HotUpdate = cc.Class({
         return true;
       }
     });
-
-
-
     if (cc.sys.os === cc.sys.OS_ANDROID) {
       this._am.setMaxConcurrentTask(2);
     }
