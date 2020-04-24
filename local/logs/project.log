@@ -1,498 +1,56 @@
-2020-04-23T14:06:54.308Z - normal: Load ~/.CocosCreator/settings.json
-2020-04-23T14:06:54.312Z - normal: checking language setting...
-2020-04-23T14:06:54.312Z - normal: Language: en
-2020-04-23T14:06:55.991Z - success: protocol editor-framework registered
-2020-04-23T14:06:55.991Z - success: protocol app registered
-2020-04-23T14:06:55.991Z - success: protocol theme registered
-2020-04-23T14:06:55.991Z - success: protocol packages registered
-2020-04-23T14:06:55.991Z - success: protocol unpack registerred
-2020-04-23T14:06:55.991Z - success: protocol disable-commonjs registerred
-2020-04-23T14:06:56.379Z - normal: connected!
-2020-04-23T14:06:56.380Z - normal: Check project E:\ProjectH86\GameMoiH86
-2020-04-23T14:06:56.382Z - normal: Initializing project E:\ProjectH86\GameMoiH86
-2020-04-23T14:06:56.398Z - normal: Initializing Cocos2d
-2020-04-23T14:06:57.965Z - normal: Initializing Asset Database
-2020-04-23T14:06:58.007Z - success: protocol uuid registerred
-2020-04-23T14:06:58.007Z - success: protocol db registerred
-2020-04-23T14:06:58.007Z - success: protocol thumbnail registerred
-2020-04-23T14:06:58.008Z - normal: Loading editor/builtin packages
-2020-04-23T14:06:58.163Z - success: assets loaded
-2020-04-23T14:06:58.166Z - success: builder loaded
-2020-04-23T14:06:58.169Z - success: cocos-analytics loaded
-2020-04-23T14:06:58.172Z - success: console loaded
-2020-04-23T14:06:58.208Z - success: fb-instant-games loaded
-2020-04-23T14:06:58.214Z - success: hierarchy loaded
-2020-04-23T14:06:58.217Z - success: inspector loaded
-2020-04-23T14:06:58.219Z - success: keystore loaded
-2020-04-23T14:06:58.223Z - success: node-library loaded
-2020-04-23T14:06:58.225Z - success: package-asset loaded
-2020-04-23T14:06:58.227Z - success: preferences loaded
-2020-04-23T14:06:58.229Z - success: project-exporter loaded
-2020-04-23T14:06:58.245Z - success: project-importer loaded
-2020-04-23T14:06:58.248Z - success: project-settings loaded
-2020-04-23T14:06:58.251Z - success: ui-kit loaded
-2020-04-23T14:06:58.254Z - success: scene loaded
-2020-04-23T14:06:58.256Z - success: sprite-editor loaded
-2020-04-23T14:06:58.259Z - success: store loaded
-2020-04-23T14:06:58.264Z - success: timeline loaded
-2020-04-23T14:06:58.264Z - normal: Loading builtin packages
-2020-04-23T14:06:58.279Z - success: asset-db-debugger loaded
-2020-04-23T14:06:58.291Z - success: code-editor loaded
-2020-04-23T14:06:58.296Z - success: color-picker loaded
-2020-04-23T14:06:58.308Z - success: package-manager loaded
-2020-04-23T14:06:58.313Z - success: qqplay-adapter loaded
-2020-04-23T14:06:58.391Z - success: sdkbox loaded
-2020-04-23T14:06:58.411Z - success: tester loaded
-2020-04-23T14:06:58.440Z - success: ui-grid loaded
-2020-04-23T14:06:58.453Z - success: ui-kit-preview-extra loaded
-2020-04-23T14:06:58.465Z - success: ui-kit-preview loaded
-2020-04-23T14:06:58.477Z - success: ui-tree loaded
-2020-04-23T14:06:58.486Z - success: weapp-adapter loaded
-2020-04-23T14:06:59.859Z - normal: Loading packages
-2020-04-23T14:06:59.868Z - warn: Invalid package name: test: do not contains uppercase characters.
-2020-04-23T14:06:59.871Z - success: test loaded
-2020-04-23T14:06:59.872Z - normal: Watching packages
-2020-04-23T14:07:00.406Z - normal: Run Application
-2020-04-23T14:07:17.891Z - warn: [SpriteAtlas import] Some of the frame keys have been reformatted : ["img/common/ic1.png","img/common/ic2.png","img/common/ic_default_trans.png"]
-2020-04-23T14:07:30.141Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var IS_RUN_INSTANT_FACEBOOK = false;"
-2020-04-23T14:07:30.142Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var IS_CLOSE_SIO_OLD = 3//1: dung cu,2:dung moi ,3: dung ca 2."
-2020-04-23T14:07:30.142Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var NAME_GAME = "_____CAM_JS";"
-2020-04-23T14:07:30.142Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var OPERATOR = 7000;"
-2020-04-23T14:07:30.143Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var DIALOG_ZINDEX=50;"
-2020-04-23T14:07:30.143Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var POPUP_ZINDEX=51;"
-2020-04-23T14:07:30.143Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var TAG = {"
-2020-04-23T14:07:30.143Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var IS_OFFLINE=true;"
-2020-04-23T14:07:30.143Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var GAME_ID = {"
-2020-04-23T14:07:30.144Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var SERVICE_CODE= {"
-2020-04-23T14:07:30.144Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var GAME_INFO = {"
-2020-04-23T14:07:30.144Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var EFFECT_TYPE = {"
-2020-04-23T14:07:30.144Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var DIALOG_TYPE = {"
-2020-04-23T14:07:30.145Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var LOGIN_TYPE = {"
-2020-04-23T14:07:30.145Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var STATE_GAME = {"
-2020-04-23T14:07:30.145Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var GAME_ZORDER = {"
-2020-04-23T14:07:30.145Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var CODE_JOKER_BLACK = 60"
-2020-04-23T14:07:30.145Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var CODE_JOKER_RED = 61"
-2020-04-23T14:07:30.145Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var TYPE_CARD_MAU_BINH = {"
-2020-04-23T14:07:30.145Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var TYPE_CARD_TIEN_LEN = {"
-2020-04-23T14:07:30.146Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var CURRENT_VIEW = {"
-2020-04-23T14:07:30.146Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var SIDE_BET = { //use for Baccarat"
-2020-04-23T14:07:30.146Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var SIDE_WINPAIR = {"
-2020-04-23T14:07:30.146Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var TYPEWIN_BACCARAT = {"
-2020-04-23T14:07:30.146Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\Define.js"
-line: "var TRACKING_TYPE = {"
-2020-04-23T14:07:30.301Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
-path: "E:\ProjectH86\GameMoiH86\assets\scripts\Managers\ResDefine.js"
-line: "var ResDefine = {"
-2020-04-23T14:08:24.707Z - success: preview server running at http://localhost:7457
-2020-04-23T14:08:41.863Z - error: Failed to remove menu in path: Developer/UI Preview/ui-tree (could not be found)
-    at Menu.remove (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\main\menu.js:1:2594)
-    at Object.MainMenu.remove (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\main\main-menu.js:1:4485)
-    at Async.series.a (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\main\package.js:1:5122)
-    at C:\CocosCreator1.10.2\resources\app.asar\node_modules\async\lib\async.js:718:13
-    at Immediate.iterate (C:\CocosCreator1.10.2\resources\app.asar\node_modules\async\lib\async.js:262:13)
-    at runCallback (timers.js:672:20)
-    at tryOnImmediate (timers.js:645:5)
-    at processImmediate [as _immediateCallback] (timers.js:617:5)
-2020-04-23T14:08:41.865Z - success: ui-tree unloaded
-2020-04-23T14:08:41.867Z - error: Failed to remove menu in path: Developer/UI Preview/ui-tree (could not be found)
-    at Menu.remove (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\main\menu.js:1:2594)
-    at Object.MainMenu.remove (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\main\main-menu.js:1:4485)
-    at Async.series.a (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\main\package.js:1:5122)
-    at C:\CocosCreator1.10.2\resources\app.asar\node_modules\async\lib\async.js:718:13
-    at Immediate.iterate (C:\CocosCreator1.10.2\resources\app.asar\node_modules\async\lib\async.js:262:13)
-    at runCallback (timers.js:672:20)
-    at tryOnImmediate (timers.js:645:5)
-    at processImmediate [as _immediateCallback] (timers.js:617:5)
-2020-04-23T14:08:41.867Z - failed: Failed to uncache module main.js: Cannot find it.
-2020-04-23T14:08:41.868Z - success: ui-tree unloaded
-2020-04-23T14:08:41.881Z - failed: Failed to load panel "panel.preview" from "ui-tree", the panelID ui-tree.preview already exists
-2020-04-23T14:08:41.885Z - success: ui-tree loaded
-2020-04-23T14:08:41.886Z - success: ui-tree loaded
-2020-04-23T14:40:32.650Z - error: TypeError: Cannot read property '_uuid' of null
-    at Object.PrefabUtils.linkPrefab (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\prefab.js:1:4961)
-    at cc_Node._onHierarchyChanged (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\utils\base-node.js:1143:29)
-    at cc_Node._onHierarchyChanged (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\CCNode.js:1116:14)
-    at cc_Node.setParent (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\utils\base-node.js:415:18)
-    at NodeUtils.createNodeFromAsset (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:3502)
-    at sp_SkeletonData.cc.Class.createNode (C:\CocosCreator1.10.2\resources\engine\extensions\spine\SkeletonData.js:128:16)
-    at cc.AssetLibrary.loadAsset (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\node.js:1:4271)
-    at CCLoader.<anonymous> (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\platform\CCAssetLibrary.js:111:17)
-    at C:\CocosCreator1.10.2\resources\engine\cocos2d\core\load-pipeline\CCLoader.js:258:38
-    at C:\CocosCreator1.10.2\resources\engine\cocos2d\core\platform\utils.js:68:21
-2020-04-23T14:41:08.612Z - error: TypeError: Cannot read property '_uuid' of null
-    at Object.PrefabUtils.linkPrefab (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\prefab.js:1:4961)
-    at cc_Node._onHierarchyChanged (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\utils\base-node.js:1143:29)
-    at cc_Node._onHierarchyChanged (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\CCNode.js:1116:14)
-    at cc_Node.setParent (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\utils\base-node.js:415:18)
-    at e.forEach.e (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:2589)
-    at Array.forEach (native)
-    at Object.moveNodes (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:2022)
-    at HTMLElement.move-nodes (C:\CocosCreator1.10.2\resources\app.asar\editor\builtin\scene\panel\messages\scene-operation.js:1:2582)
-    at Object.Panel._dispatch (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\renderer\panel.js:1:2283)
-    at EventEmitter.ipcRenderer.on.o (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:4070)
-2020-04-23T14:41:12.028Z - error: TypeError: Cannot read property '_uuid' of null
-    at Object.PrefabUtils.linkPrefab (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\prefab.js:1:4961)
-    at cc_Node._onHierarchyChanged (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\utils\base-node.js:1143:29)
-    at cc_Node._onHierarchyChanged (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\CCNode.js:1116:14)
-    at cc_Node.setParent (C:\CocosCreator1.10.2\resources\engine\cocos2d\core\utils\base-node.js:415:18)
-    at e.forEach.e (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:2589)
-    at Array.forEach (native)
-    at Object.moveNodes (C:\CocosCreator1.10.2\resources\app.asar\editor\page\scene-utils\utils\scene.js:1:2022)
-    at HTMLElement.move-nodes (C:\CocosCreator1.10.2\resources\app.asar\editor\builtin\scene\panel\messages\scene-operation.js:1:2582)
-    at Object.Panel._dispatch (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\renderer\panel.js:1:2283)
-    at EventEmitter.ipcRenderer.on.o (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:4070)
-2020-04-23T14:45:02.921Z - normal: Simulator: SCREEN DPI = 96, SCREEN SCALE = 1.00
-2020-04-23T14:45:02.923Z - normal: Simulator: WORKAREA WIDTH 1912.00, HEIGHT 989.00
-2020-04-23T14:45:02.923Z - normal: Simulator: FRAME SCALE = 1.00
-2020-04-23T14:45:04.511Z - normal: Simulator: Ready for GLSL
-2020-04-23T14:45:04.511Z - normal: Simulator: Ready for OpenGL 2.0
-2020-04-23T14:45:04.511Z - normal: Simulator: 
-2020-04-23T14:45:04.511Z - normal: Simulator: {
-2020-04-23T14:45:04.512Z - normal: Simulator: 	gl.version: 4.5.0 - Build 25.20.100.6373
-2020-04-23T14:45:04.512Z - normal: Simulator: 	gl.supports_NPOT: true
-2020-04-23T14:45:04.512Z - normal: Simulator: 	cocos2d.x.version: Cocos2d-x-lite v1.8.2
-2020-04-23T14:45:04.512Z - normal: Simulator: 	cocos2d.x.compiled_with_profiler: false
-2020-04-23T14:45:04.512Z - normal: Simulator: 	cocos2d.x.build_type: DEBUG
-2020-04-23T14:45:04.513Z - normal: Simulator: 	cocos2d.x.compiled_with_gl_state_cache: true
-2020-04-23T14:45:04.513Z - normal: Simulator: 	gl.max_texture_size: 16384
-2020-04-23T14:45:04.514Z - normal: Simulator: 	gl.supports_OES_packed_depth_stencil: false
-2020-04-23T14:45:04.514Z - normal: Simulator: 	gl.vendor: Intel
-2020-04-23T14:45:04.514Z - normal: Simulator: 	gl.renderer: Intel(R) HD Graphics 530
-2020-04-23T14:45:04.515Z - normal: Simulator: 	gl.max_texture_units: 192
-2020-04-23T14:45:04.515Z - normal: Simulator: 	gl.supports_ETC1: false
-2020-04-23T14:45:04.515Z - normal: Simulator: 	gl.supports_PVRTC: false
-2020-04-23T14:45:04.516Z - normal: Simulator: 	gl.supports_BGRA8888: false
-2020-04-23T14:45:04.516Z - normal: Simulator: 	gl.supports_discard_framebuffer: false
-2020-04-23T14:45:04.516Z - normal: Simulator: 	gl.supports_vertex_array_object: true
-2020-04-23T14:45:04.516Z - normal: Simulator: 	gl.supports_OES_map_buffer: false
-2020-04-23T14:45:04.516Z - normal: Simulator: 	gl.supports_OES_depth24: false
-2020-04-23T14:45:04.516Z - normal: Simulator: }
-2020-04-23T14:45:04.517Z - normal: Simulator: 
-2020-04-23T14:45:04.517Z - normal: Simulator: 
-2020-04-23T14:45:04.517Z - normal: Simulator: cocos2d: warning, Director::setProjection() failed because size is 0
-2020-04-23T14:45:04.517Z - normal: Simulator: Project Config:
-2020-04-23T14:45:04.517Z - normal: Simulator:     project dir: C:\CocosCreator1.10.2\resources\cocos2d-x\simulator\win32\
-2020-04-23T14:45:04.518Z - normal: Simulator:     writable path: $(PROJDIR)\
-2020-04-23T14:45:04.518Z - normal: Simulator:     script file: $(PROJDIR)\main.js
-2020-04-23T14:45:04.518Z - normal: Simulator:     frame size: 1800 x 750
-2020-04-23T14:45:04.518Z - normal: Simulator:     frame scale: 1.00
-2020-04-23T14:45:04.519Z - normal: Simulator:     show console: NO
-2020-04-23T14:45:04.519Z - normal: Simulator:     write debug log: NO ()
-2020-04-23T14:45:04.519Z - normal: Simulator:     listen: 
-2020-04-23T14:45:04.520Z - normal: Simulator:     debugger: none
-2020-04-23T14:45:04.520Z - normal: Simulator:     add searching path:
-2020-04-23T14:45:04.520Z - normal: Simulator: 
-2020-04-23T14:45:04.521Z - normal: Simulator: 
-2020-04-23T14:45:04.521Z - normal: Simulator: 
-2020-04-23T14:45:04.521Z - normal: Simulator: ------------------------------------------------
-2020-04-23T14:45:04.521Z - normal: Simulator: LOAD Js FILE: main.js
-2020-04-23T14:45:04.522Z - normal: Simulator: ------------------------------------------------
-2020-04-23T14:45:04.523Z - normal: Simulator: D/jswrapper (365): Initializing V8, version: 6.0.286.52
-2020-04-23T14:45:04.523Z - normal: Simulator: D/jswrapper (813): libuv version: 1.13.1
-2020-04-23T14:45:04.523Z - normal: Simulator: D/jswrapper (112): Debugger listening..., visit [ chrome-devtools://devtools/bundled/inspector.html?v8only=true&ws=0.0.0.0:5086/00010002-0003-4004-8005-000600070008 ] in chrome browser to debug!
-2020-04-23T14:45:04.524Z - normal: Simulator: D/jswrapper (115): For help see https://nodejs.org/en/docs/inspector
-2020-04-23T14:45:05.449Z - normal: Simulator: D/jswrapper (560): XMLHttpRequest_finalize, 10B8DB58 ... 
-2020-04-23T14:45:05.449Z - normal: Simulator: D/jswrapper (560): XMLHttpRequest_finalize, 10B47068 ... 
-2020-04-23T14:45:05.491Z - normal: Simulator: iShow!
-2020-04-23T14:45:06.058Z - normal: Simulator: D/jswrapper (126): JS: InitScene: 2.8020000000001346ms
-2020-04-23T14:45:06.058Z - normal: Simulator: D/jswrapper (126): JS: AutoRelease: 0.21500000000014552ms
-2020-04-23T14:45:06.059Z - normal: Simulator: D/jswrapper (126): JS: Destroy: 0.14200000000005275ms
-2020-04-23T14:45:06.060Z - normal: Simulator: D/jswrapper (126): JS: AttachPersist: 0.008000000000038199ms
-2020-04-23T14:45:06.081Z - normal: Simulator: D/jswrapper (126): JS: thu muc luu la===C:\CocosCreator1.10.2\resources\cocos2d-x\simulator\win32\remote-asset
-2020-04-23T14:45:06.081Z - normal: Simulator: D/jswrapper (126): JS: bat dau check update
-2020-04-23T14:45:06.082Z - normal: Simulator: D/jswrapper (126): JS: chay vao onload
-2020-04-23T14:45:06.191Z - normal: Simulator: D/jswrapper (126): JS: Activate: 131.68600000000015ms
-2020-04-23T14:45:06.191Z - normal: Simulator: D/jswrapper (145): JS: ------> js size X  1800
-2020-04-23T14:45:06.192Z - normal: Simulator: D/jswrapper (145): JS: ------> js size Y  750
-2020-04-23T14:45:06.205Z - normal: Simulator: D/jswrapper (126): JS: --------------------------> loadAllSound
-2020-04-23T14:45:09.608Z - normal: Simulator: D/jswrapper (589): GC begin ..., (js->native map) size: 657, all objects: 945
-2020-04-23T14:45:09.665Z - normal: Simulator: D/jswrapper (597): GC end ..., (js->native map) size: 657, all objects: 945
-2020-04-23T14:45:09.687Z - normal: Simulator: ClippingNode warning: _stencil is nil.
-2020-04-23T14:45:09.719Z - normal: Simulator: D/jswrapper (126): JS: 0---------->   handleCTable
-2020-04-23T14:45:09.722Z - normal: Simulator: D/jswrapper (126): JS: 250
-2020-04-23T14:45:09.722Z - normal: Simulator: D/jswrapper (126): JS: 1,5,25,50,250,500
-2020-04-23T14:45:09.722Z - normal: Simulator: D/jswrapper (126): JS: 1
-2020-04-23T14:45:09.722Z - normal: Simulator: D/jswrapper (126): JS: 100000
-2020-04-23T14:45:09.725Z - normal: Simulator: cocos2d: QuadCommand: resizing index size from [-1] to [2560]
-2020-04-23T14:45:11.307Z - normal: Simulator: D/jswrapper (126): JS: Ag jackpot==0
-2020-04-23T14:45:11.328Z - normal: Simulator: D/jswrapper (126): JS: data finish={"evt":"slotViews","slotViews":[[10,0,5],[4,0,9],[9,5,2],[5,2,11],[6,1,9]],"creditWin":0,"winningLine":[],"lineDetail":[],"freeSpinLeft":0,"winType":0,"freeSpin":false,"agWin":0,"AG":95000,"level":{"levelUser":0,"curLevelExp":0,"maxLevelExp":4,"agUser":95000},"MarkBet":[1,5,25,50,250,500],"singleLineBet":0}
-2020-04-23T14:45:11.486Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.487Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.488Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.489Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.490Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.491Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.492Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.493Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.494Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.495Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.496Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.497Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.498Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.499Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.506Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.804Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.806Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.807Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.808Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.810Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.976Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.977Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.978Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:11.979Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.138Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.139Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.141Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.142Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.552Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.553Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.555Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.557Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.711Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.713Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.715Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.856Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.857Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:12.858Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.005Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.007Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.008Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.177Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.178Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.327Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.328Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.471Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.472Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.645Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.805Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:13.954Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:14.457Z - normal: Simulator: D/jswrapper (126): JS: ---- SIO: init
-2020-04-23T14:45:14.457Z - normal: Simulator: D/jswrapper (126): JS: my chip test of si: 95000
-2020-04-23T14:45:14.459Z - normal: Simulator: D/jswrapper (145): JS: ------> Return sceneName  
-2020-04-23T14:45:14.460Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key id is 0
-2020-04-23T14:45:14.461Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key name is 
-2020-04-23T14:45:14.461Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key ag is 95000
-2020-04-23T14:45:14.461Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key vip is 0
-2020-04-23T14:45:14.464Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key lq is 0
-2020-04-23T14:45:14.465Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key curView is 
-2020-04-23T14:45:14.465Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key gameID is 1010
-2020-04-23T14:45:14.466Z - normal: Simulator: D/jswrapper (145): JS: ====> SIO: DATA ====> {"id":0,"name":"","ag":95000,"vip":0,"lq":0,"curView":"","gameID":1010,"event":"update","timestamp":1587653114461}
-2020-04-23T14:45:14.466Z - normal: Simulator: D/jswrapper (126): JS: SIO: deo data leen
-2020-04-23T14:45:14.474Z - normal: Simulator: D/jswrapper (126): JS: SlotJP:reset for nexxt spin
-2020-04-23T14:45:14.475Z - normal: Simulator: D/jswrapper (589): GC begin ..., (js->native map) size: 1295, all objects: 1673
-2020-04-23T14:45:14.526Z - normal: Simulator: D/jswrapper (597): GC end ..., (js->native map) size: 950, all objects: 1328
-2020-04-23T14:45:18.482Z - normal: Simulator: D/jswrapper (126): JS: ======================== Nhan chip hang ngay
-2020-04-23T14:45:18.483Z - normal: Simulator: D/jswrapper (126): JS: Curag player=145000
-2020-04-23T14:45:18.483Z - normal: Simulator: D/jswrapper (126): JS: ----> Chip ng choi 145000
-2020-04-23T14:45:18.525Z - normal: Simulator: D/jswrapper (126): JS: List mark bet==1,5,25,50,250,500
-2020-04-23T14:45:18.525Z - normal: Simulator: D/jswrapper (126): JS: 1,5,25,50,250,500
-2020-04-23T14:45:18.525Z - normal: Simulator: D/jswrapper (126): JS: 250
-2020-04-23T14:45:18.525Z - normal: Simulator: D/jswrapper (145): JS: ------> Return sceneName  
-2020-04-23T14:45:18.527Z - normal: Simulator: D/jswrapper (126): JS: 4:  10,000
-2020-04-23T14:45:18.535Z - normal: Simulator: D/jswrapper (126): JS: OnPopOn
-2020-04-23T14:45:18.535Z - normal: Simulator: D/jswrapper (126): JS: name btn1-2-3=Confirm-...-...
-2020-04-23T14:45:18.540Z - normal: Simulator: D/jswrapper (126): JS: DIALOG
-2020-04-23T14:45:18.543Z - normal: Simulator: D/jswrapper (126): JS: onShowConfirmDialog===message=Watch video ads to get x2 chips daily !
-2020-04-23T14:45:18.566Z - normal: Simulator: cocos2d: SpriteBatchNode: resizing TextureAtlas capacity from [29] to [40].
-2020-04-23T14:45:19.504Z - normal: Simulator: D/jswrapper (145): JS: ------> Return sceneName  
-2020-04-23T14:45:19.504Z - normal: Simulator: D/jswrapper (126): JS: Lam Deo Gi co Ads
-2020-04-23T14:45:19.511Z - normal: Simulator: D/jswrapper (126): JS: OnPopOn
-2020-04-23T14:45:19.511Z - normal: Simulator: D/jswrapper (126): JS: name btn1-2-3=Confirm-...-...
-2020-04-23T14:45:19.521Z - normal: Simulator: D/jswrapper (126): JS: DIALOG
-2020-04-23T14:45:19.521Z - normal: Simulator: D/jswrapper (126): JS: onShowConfirmDialog===message=Ads reward is not available now,
-2020-04-23T14:45:19.522Z - normal: Simulator:  Please wait a few seconds
-2020-04-23T14:45:19.522Z - normal: Simulator: D/jswrapper (126): JS: click vao btn_1
-2020-04-23T14:45:19.526Z - normal: Simulator: cocos2d: SpriteBatchNode: resizing TextureAtlas capacity from [29] to [40].
-2020-04-23T14:45:19.527Z - normal: Simulator: cocos2d: SpriteBatchNode: resizing TextureAtlas capacity from [40] to [54].
-2020-04-23T14:45:19.527Z - normal: Simulator: cocos2d: SpriteBatchNode: resizing TextureAtlas capacity from [54] to [73].
-2020-04-23T14:45:20.926Z - normal: Simulator: D/jswrapper (145): JS: ------> Return sceneName  
-2020-04-23T14:45:20.927Z - normal: Simulator: D/jswrapper (126): JS: Util:request Ads
-2020-04-23T14:45:20.927Z - normal: Simulator: D/jswrapper (126): JS: click vao btn_1
-2020-04-23T14:45:25.542Z - normal: Simulator: D/jswrapper (126): JS: Ag jackpot==0
-2020-04-23T14:45:25.565Z - normal: Simulator: D/jswrapper (126): JS: data finish={"evt":"slotViews","slotViews":[[11,1,3],[2,12,4],[7,11,5],[5,7,0],[6,5,10]],"creditWin":10,"winningLine":[{"lineId":5,"win":0}],"lineDetail":[{"lineId":5,"win":0}],"freeSpinLeft":0,"winType":0,"freeSpin":false,"agWin":5000,"AG":140000,"level":{"levelUser":0,"curLevelExp":0,"maxLevelExp":4,"agUser":140000},"MarkBet":[1,5,25,50,250,500],"singleLineBet":0}
-2020-04-23T14:45:25.651Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.653Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.653Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.654Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.655Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.656Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.656Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.657Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.658Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.658Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.659Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.660Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.668Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.668Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.668Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.801Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.802Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.803Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.805Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.808Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.969Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.969Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.971Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.972Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:25.974Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.126Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.127Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.134Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.136Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.284Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.286Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.288Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.290Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.452Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.453Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.454Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.456Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.608Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.609Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.616Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.751Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.756Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.759Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.901Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.903Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:26.906Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.077Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.078Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.218Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.221Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.385Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.387Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.557Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.702Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:27.871Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:28.384Z - normal: Simulator: D/jswrapper (126): JS: my chip test of si: 140000
-2020-04-23T14:45:28.385Z - normal: Simulator: D/jswrapper (145): JS: ------> Return sceneName  
-2020-04-23T14:45:28.385Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key id is 0
-2020-04-23T14:45:28.385Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key name is 
-2020-04-23T14:45:28.386Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key ag is 140000
-2020-04-23T14:45:28.387Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key vip is 0
-2020-04-23T14:45:28.388Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key lq is 0
-2020-04-23T14:45:28.388Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key curView is 
-2020-04-23T14:45:28.388Z - normal: Simulator: D/jswrapper (126): JS: SIO: Key gameID is 1010
-2020-04-23T14:45:28.388Z - normal: Simulator: D/jswrapper (145): JS: ====> SIO: DATA ====> {"id":0,"name":"","ag":140000,"vip":0,"lq":0,"curView":"","gameID":1010,"event":"update","timestamp":1587653128386}
-2020-04-23T14:45:28.388Z - normal: Simulator: D/jswrapper (126): JS: SIO: deo data leen
-2020-04-23T14:45:42.050Z - normal: Simulator: D/jswrapper (126): JS: SlotJP:reset for nexxt spin
-2020-04-23T14:45:42.052Z - normal: Simulator: D/jswrapper (589): GC begin ..., (js->native map) size: 1059, all objects: 1389
-2020-04-23T14:45:42.108Z - normal: Simulator: D/jswrapper (597): GC end ..., (js->native map) size: 987, all objects: 1317
-2020-04-23T14:45:42.530Z - normal: Simulator: D/jswrapper (126): JS: Ag jackpot==0
-2020-04-23T14:45:42.549Z - normal: Simulator: D/jswrapper (126): JS: data finish={"evt":"slotViews","slotViews":[[0,4,11],[2,6,0],[7,10,1],[2,11,3],[9,5,10]],"creditWin":0,"winningLine":[],"lineDetail":[],"freeSpinLeft":0,"winType":0,"freeSpin":false,"agWin":0,"AG":130000,"level":{"levelUser":0,"curLevelExp":0,"maxLevelExp":4,"agUser":130000},"MarkBet":[1,5,25,50,250,500],"singleLineBet":0}
-2020-04-23T14:45:42.667Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.675Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.675Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.681Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.681Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.682Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.682Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.682Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.682Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.682Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.683Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.684Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.685Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.685Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.685Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.818Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.824Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.824Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.825Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.825Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.985Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.991Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.992Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.993Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:42.993Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.158Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.159Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.159Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.161Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.318Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.320Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.325Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.326Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.517Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.518Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.519Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.657Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.659Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.664Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.809Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.811Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.814Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.980Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:43.982Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:44.234Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:44.241Z - normal: Simulator: D/jswrapper (126): JS: set Blur
-2020-04-23T14:45:44.274Z - normal: Simulator: D/jswrapper (448): ScriptEngine::cleanup begin ...
-2020-04-23T14:45:44.274Z - normal: Simulator: D/jswrapper (589): GC begin ..., (js->native map) size: 1447, all objects: 1840
-2020-04-23T14:45:44.324Z - normal: Simulator: D/jswrapper (597): GC end ..., (js->native map) size: 976, all objects: 1369
-2020-04-23T14:45:44.328Z - normal: Simulator: D/jswrapper (589): GC begin ..., (js->native map) size: 976, all objects: 1305
-2020-04-23T14:45:44.374Z - normal: Simulator: D/jswrapper (597): GC end ..., (js->native map) size: 976, all objects: 1305
-2020-04-23T14:45:44.381Z - normal: Simulator: D/jswrapper (589): GC begin ..., (js->native map) size: 0, all objects: 0
-2020-04-23T14:45:44.432Z - normal: Simulator: D/jswrapper (597): GC end ..., (js->native map) size: 0, all objects: 0
-2020-04-23T14:45:44.481Z - normal: Simulator: D/jswrapper (688): Starting to cleanup dragonbones object, count: 0
-2020-04-23T14:45:44.481Z - normal: Simulator: D/jswrapper (707): After first cleanup, dragonbones object remained count: 0
-2020-04-23T14:45:44.481Z - normal: Simulator: D/jswrapper (723): After second cleanup, dragonbones object remained count: 0
-2020-04-23T14:45:44.482Z - normal: Simulator: D/jswrapper (511): ScriptEngine::cleanup end ...
-2020-04-23T14:45:44.574Z - error: Simulator: 
-Warning: Real sample count 978048 differs from given gapless sample count -576. Frankenstein stream?
-AL lib: (EE) alc_cleanup: 1 device not closed
-    at HTMLElement.print-simulator-log (C:\CocosCreator1.10.2\resources\app.asar\editor\builtin\scene\panel\messages\scene.js:1:1562)
-    at Object.Panel._dispatch (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\renderer\panel.js:1:2283)
-    at EventEmitter.ipcRenderer.on.o (C:\CocosCreator1.10.2\resources\app.asar\editor-framework\lib\renderer\ipc.js:1:4070)
-    at emitMany (events.js:127:13)
-    at EventEmitter.emit (events.js:204:7)
-2020-04-23T14:45:59.736Z - warn: E:\ProjectH86\GameMoiH86\build not exists!
+2020-04-24T02:43:30.401Z - normal: Load ~/.CocosCreator/settings.json
+2020-04-24T02:43:30.406Z - normal: checking language setting...
+2020-04-24T02:43:30.406Z - normal: Language: en
+2020-04-24T02:43:31.970Z - success: protocol editor-framework registered
+2020-04-24T02:43:31.970Z - success: protocol app registered
+2020-04-24T02:43:31.970Z - success: protocol theme registered
+2020-04-24T02:43:31.970Z - success: protocol packages registered
+2020-04-24T02:43:31.971Z - success: protocol unpack registerred
+2020-04-24T02:43:31.971Z - success: protocol disable-commonjs registerred
+2020-04-24T02:43:32.339Z - normal: connected!
+2020-04-24T02:43:32.340Z - normal: Check project E:\ProjectH86\GameMoiH86
+2020-04-24T02:43:32.342Z - normal: Initializing project E:\ProjectH86\GameMoiH86
+2020-04-24T02:43:32.387Z - normal: Initializing Cocos2d
+2020-04-24T02:43:32.623Z - normal: Initializing Asset Database
+2020-04-24T02:43:32.688Z - success: protocol uuid registerred
+2020-04-24T02:43:32.689Z - success: protocol db registerred
+2020-04-24T02:43:32.689Z - success: protocol thumbnail registerred
+2020-04-24T02:43:32.689Z - normal: Loading editor/builtin packages
+2020-04-24T02:43:32.835Z - success: assets loaded
+2020-04-24T02:43:32.838Z - success: builder loaded
+2020-04-24T02:43:32.841Z - success: cocos-analytics loaded
+2020-04-24T02:43:32.844Z - success: console loaded
+2020-04-24T02:43:32.882Z - success: fb-instant-games loaded
+2020-04-24T02:43:32.888Z - success: hierarchy loaded
+2020-04-24T02:43:32.890Z - success: inspector loaded
+2020-04-24T02:43:32.892Z - success: keystore loaded
+2020-04-24T02:43:32.896Z - success: node-library loaded
+2020-04-24T02:43:32.898Z - success: package-asset loaded
+2020-04-24T02:43:32.899Z - success: preferences loaded
+2020-04-24T02:43:32.900Z - success: project-exporter loaded
+2020-04-24T02:43:32.915Z - success: project-importer loaded
+2020-04-24T02:43:32.917Z - success: project-settings loaded
+2020-04-24T02:43:32.920Z - success: ui-kit loaded
+2020-04-24T02:43:32.923Z - success: scene loaded
+2020-04-24T02:43:32.925Z - success: sprite-editor loaded
+2020-04-24T02:43:32.928Z - success: store loaded
+2020-04-24T02:43:32.932Z - success: timeline loaded
+2020-04-24T02:43:32.932Z - normal: Loading builtin packages
+2020-04-24T02:43:32.936Z - success: asset-db-debugger loaded
+2020-04-24T02:43:32.939Z - success: code-editor loaded
+2020-04-24T02:43:32.940Z - success: color-picker loaded
+2020-04-24T02:43:32.942Z - success: package-manager loaded
+2020-04-24T02:43:32.943Z - success: qqplay-adapter loaded
+2020-04-24T02:43:32.972Z - success: sdkbox loaded
+2020-04-24T02:43:32.980Z - success: tester loaded
+2020-04-24T02:43:32.983Z - success: ui-grid loaded
+2020-04-24T02:43:32.986Z - success: ui-kit-preview-extra loaded
+2020-04-24T02:43:32.987Z - success: ui-kit-preview loaded
+2020-04-24T02:43:32.989Z - success: ui-tree loaded
+2020-04-24T02:43:32.990Z - success: weapp-adapter loaded
+2020-04-24T02:43:34.144Z - normal: Loading packages
+2020-04-24T02:43:34.159Z - warn: Invalid package name: test: do not contains uppercase characters.
+2020-04-24T02:43:34.209Z - success: test loaded
+2020-04-24T02:43:34.209Z - normal: Watching packages
+2020-04-24T02:43:34.611Z - normal: Run Application
+2020-04-24T02:43:51.498Z - success: preview server running at http://localhost:7457

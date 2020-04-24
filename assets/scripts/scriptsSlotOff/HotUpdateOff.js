@@ -170,7 +170,6 @@ var HotUpdate = cc.Class({
       return;
     }
     if (this._am.getState() === jsb.AssetsManager.State.UNINITED) {
-      // Resolve md5 url
       var url = this.manifestUrl.nativeUrl;
       if (cc.loader.md5Pipe) {
         url = cc.loader.md5Pipe.transformURL(url);
@@ -251,11 +250,11 @@ var HotUpdate = cc.Class({
       );
       var vA = versionA.split(".");
       var vB = versionB.split(".");
-      _this.versionA = versionA;
-      _this.versionB = versionB;
-      require("GameManager").getInstance().versionA = versionA;
-      require("GameManager").getInstance().versionB = versionB;
-      cc.sys.localStorage.setItem("verHotUpdate", versionA);
+      // _this.versionA = versionA;
+      // _this.versionB = versionB;
+      // require("GameManager").getInstance().versionA = versionA;
+      // require("GameManager").getInstance().versionB = versionB;
+     // cc.sys.localStorage.setItem("verHotUpdate", versionA);
       for (var i = 0; i < vA.length; ++i) {
         var a = parseInt(vA[i]);
         var b = parseInt(vB[i] || 0);
@@ -301,7 +300,6 @@ var HotUpdate = cc.Class({
     if (cc.sys.os === cc.sys.OS_ANDROID) {
       this._am.setMaxConcurrentTask(2);
     }
-    console.log('bat dau check update');
     // this.checkUpdate();
   },
   onDestroy: function () {
