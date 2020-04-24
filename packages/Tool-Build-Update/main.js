@@ -10,8 +10,8 @@ var urlProject = '';
 var URLs_SubPack = [];
 var proManUid = "";
 // sua thong tin hot update 
-var versionUpdate = "2.03.0";
- var linkHotUpdate = "https://storage.googleapis.com/s.ngwcasino.com/asset/js/ios/ngw_purple_ios23/";
+var versionUpdate = "1.0.0";
+ var linkHotUpdate = "http://192.168.1.97:8080/";
 //var linkHotUpdate = "http://192.168.1.50:8700/";
 // su thong tin hotupdate end
 var manifest = {

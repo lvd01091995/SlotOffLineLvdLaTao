@@ -43,8 +43,6 @@ var LoadingGameOff = cc.Class({
         http.onerror = ()=>{
             this.getComponent("HotUpdateOff").showSlotGame();
         }
-
-        
         cc.log("nhảy vào send ");
         http.send();
 
@@ -151,6 +149,7 @@ var LoadingGameOff = cc.Class({
     // },
     loadInfo: function () {
        if (cc.sys.isNative) {
+        require("Util").hideSplash();
         this.cors_url = "";
         var deviceId = cc.sys.localStorage.getItem("GEN_DEVICEID");
         if (deviceId == null) {

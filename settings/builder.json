@@ -19,7 +19,7 @@
     "portrait": false,
     "upsideDown": false
   },
-  "packageName": "khmer.ngw.card.slot",
+  "packageName": "com.slot.b888",
   "privateKey": "",
   "qqplay": {
     "REMOTE_SERVER_ROOT": "",
@@ -27,7 +27,7 @@
   },
   "renderMode": "0",
   "startScene": "3e14c4e2-aafa-4477-b05f-a3d8dc08a037",
-  "title": "NGW",
+  "title": "B888",
   "webOrientation": "landscape",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
@@ -36,6 +36,6 @@
     "orientation": "portrait",
     "subContext": ""
   },
-  "xxteaKey": "cbba7316-b0d4-4b",
+  "xxteaKey": "148ba8ab-603e-49",
   "zipCompressJs": true
 }

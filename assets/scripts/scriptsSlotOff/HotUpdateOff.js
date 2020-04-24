@@ -100,16 +100,10 @@ var HotUpdate = cc.Class({
         break;
       case jsb.EventAssetsManager.UPDATE_FAILED:
         console.log("Update failed. " + event.getMessage());
-        this.countFail++;
-        if (this.countFail < 5) {
           this._am.downloadFailedAssets();
           this._updating = false;
           this._canRetry = true;
-        } else {
-           jsb.fileUtils.removeDirectory(this._storagePath);
-          failed = true;
-          this.countFail = 0;
-        }
+        
         break;
       case jsb.EventAssetsManager.ERROR_UPDATING:
         console.log(
@@ -174,7 +168,7 @@ var HotUpdate = cc.Class({
       if (cc.loader.md5Pipe) {
         url = cc.loader.md5Pipe.transformURL(url);
       }
-      console.log("gia tri url la===" + url);
+   
       this._am.loadLocalManifest(url);
     }
 
@@ -186,9 +180,11 @@ var HotUpdate = cc.Class({
       return;
     }
     // this._am.setEventCallback(this.checkCb.bind(this));
+    console.log("gia tri url la===" + url);
     this._checkListener = new jsb.EventListenerAssetsManager(this._am, this.checkCb.bind(this));
     cc.eventManager.addListener(this._checkListener, 1);
     this._am.checkUpdate();
+    console.log("gia tri url la===22222222222222222222222222222222");
     this._updating = true;
     this.scheduleOnce(() => {
       //require("UIManager").instance.nextStep();

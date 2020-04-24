@@ -12,6 +12,25 @@
     ],
     [
       false,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
       false
     ]
   ],
@@ -19,14 +38,16 @@
   "design-resolution-width": 960,
   "excluded-modules": [
     "VideoPlayer",
-    "WebView",
-    "MotionStreak"
+    "WebView"
   ],
   "fit-height": false,
   "fit-width": true,
   "group-list": [
     "default",
-    "hide"
+    "fish",
+    "gun",
+    "",
+    ""
   ],
   "simulator-orientation": true,
   "simulator-resolution": {
