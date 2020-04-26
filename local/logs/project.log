@@ -1,57 +1,138 @@
-2020-04-25T07:31:04.021Z - normal: Load ~/.CocosCreator/settings.json
-2020-04-25T07:31:04.025Z - normal: checking language setting...
-2020-04-25T07:31:04.026Z - normal: Language: en
-2020-04-25T07:31:04.639Z - success: protocol editor-framework registered
-2020-04-25T07:31:04.640Z - success: protocol app registered
-2020-04-25T07:31:04.640Z - success: protocol theme registered
-2020-04-25T07:31:04.640Z - success: protocol packages registered
-2020-04-25T07:31:04.640Z - success: protocol unpack registerred
-2020-04-25T07:31:04.640Z - success: protocol disable-commonjs registerred
-2020-04-25T07:31:06.311Z - normal: connected!
-2020-04-25T07:31:06.313Z - normal: Check project /Users/minhhien/hien/Work/H86SlotOffline
-2020-04-25T07:31:06.316Z - normal: Initializing project /Users/minhhien/hien/Work/H86SlotOffline
-2020-04-25T07:31:06.321Z - normal: Initializing Cocos2d
-2020-04-25T07:31:06.516Z - normal: Initializing Asset Database
-2020-04-25T07:31:06.563Z - success: protocol uuid registerred
-2020-04-25T07:31:06.563Z - success: protocol db registerred
-2020-04-25T07:31:06.564Z - success: protocol thumbnail registerred
-2020-04-25T07:31:06.564Z - normal: Loading editor/builtin packages
-2020-04-25T07:31:06.676Z - success: assets loaded
-2020-04-25T07:31:06.681Z - success: builder loaded
-2020-04-25T07:31:06.683Z - success: cocos-analytics loaded
-2020-04-25T07:31:06.687Z - success: console loaded
-2020-04-25T07:31:06.720Z - success: fb-instant-games loaded
-2020-04-25T07:31:06.727Z - success: hierarchy loaded
-2020-04-25T07:31:06.732Z - success: inspector loaded
-2020-04-25T07:31:06.734Z - success: keystore loaded
-2020-04-25T07:31:06.738Z - success: node-library loaded
-2020-04-25T07:31:06.740Z - success: package-asset loaded
-2020-04-25T07:31:06.742Z - success: preferences loaded
-2020-04-25T07:31:06.746Z - success: project-exporter loaded
-2020-04-25T07:31:06.766Z - success: project-importer loaded
-2020-04-25T07:31:06.769Z - success: project-settings loaded
-2020-04-25T07:31:06.774Z - success: ui-kit loaded
-2020-04-25T07:31:06.785Z - success: scene loaded
-2020-04-25T07:31:06.786Z - success: sprite-editor loaded
-2020-04-25T07:31:06.790Z - success: store loaded
-2020-04-25T07:31:06.796Z - success: timeline loaded
-2020-04-25T07:31:06.797Z - normal: Loading builtin packages
-2020-04-25T07:31:06.802Z - success: asset-db-debugger loaded
-2020-04-25T07:31:06.806Z - success: color-picker loaded
-2020-04-25T07:31:06.808Z - success: jsb-adapter loaded
-2020-04-25T07:31:06.814Z - success: package-manager loaded
-2020-04-25T07:31:06.816Z - success: qqplay-adapter loaded
-2020-04-25T07:31:06.823Z - success: sdkbox loaded
-2020-04-25T07:31:06.831Z - success: tester loaded
-2020-04-25T07:31:06.837Z - success: ui-grid loaded
-2020-04-25T07:31:06.841Z - success: ui-kit-preview-extra loaded
-2020-04-25T07:31:06.847Z - success: ui-kit-preview loaded
-2020-04-25T07:31:06.850Z - success: ui-tree loaded
-2020-04-25T07:31:06.852Z - success: weapp-adapter loaded
-2020-04-25T07:31:07.862Z - normal: Loading packages
-2020-04-25T07:31:07.868Z - warn: Invalid package name: test: do not contains uppercase characters.
-2020-04-25T07:31:07.877Z - success: test loaded
-2020-04-25T07:31:07.877Z - normal: Watching packages
-2020-04-25T07:31:07.936Z - normal: Run Application
-2020-04-25T07:31:12.610Z - success: preview server running at http://localhost:7457
-2020-04-25T07:32:44.240Z - info: shutdown preview server
+2020-04-24T14:02:40.336Z - normal: Load ~/.CocosCreator/settings.json
+2020-04-24T14:02:40.339Z - normal: checking language setting...
+2020-04-24T14:02:40.339Z - normal: Language: en
+2020-04-24T14:02:41.739Z - success: protocol editor-framework registered
+2020-04-24T14:02:41.739Z - success: protocol app registered
+2020-04-24T14:02:41.739Z - success: protocol theme registered
+2020-04-24T14:02:41.739Z - success: protocol packages registered
+2020-04-24T14:02:41.739Z - success: protocol unpack registerred
+2020-04-24T14:02:41.739Z - success: protocol disable-commonjs registerred
+2020-04-24T14:02:44.737Z - normal: failed to connect login server due to request timeout
+2020-04-24T14:02:44.738Z - normal: Check project D:\CocosCreatorLvd\SlotOffLine
+2020-04-24T14:02:44.738Z - normal: Initializing project D:\CocosCreatorLvd\SlotOffLine
+2020-04-24T14:02:44.739Z - normal: Initializing Cocos2d
+2020-04-24T14:02:44.907Z - normal: Initializing Asset Database
+2020-04-24T14:02:44.931Z - success: protocol uuid registerred
+2020-04-24T14:02:44.931Z - success: protocol db registerred
+2020-04-24T14:02:44.931Z - success: protocol thumbnail registerred
+2020-04-24T14:02:44.932Z - normal: Loading editor/builtin packages
+2020-04-24T14:02:45.028Z - success: assets loaded
+2020-04-24T14:02:45.029Z - success: builder loaded
+2020-04-24T14:02:45.031Z - success: cocos-analytics loaded
+2020-04-24T14:02:45.033Z - success: console loaded
+2020-04-24T14:02:45.060Z - success: fb-instant-games loaded
+2020-04-24T14:02:45.063Z - success: hierarchy loaded
+2020-04-24T14:02:45.065Z - success: inspector loaded
+2020-04-24T14:02:45.066Z - success: keystore loaded
+2020-04-24T14:02:45.068Z - success: node-library loaded
+2020-04-24T14:02:45.069Z - success: package-asset loaded
+2020-04-24T14:02:45.070Z - success: preferences loaded
+2020-04-24T14:02:45.071Z - success: project-exporter loaded
+2020-04-24T14:02:45.082Z - success: project-importer loaded
+2020-04-24T14:02:45.084Z - success: project-settings loaded
+2020-04-24T14:02:45.086Z - success: ui-kit loaded
+2020-04-24T14:02:45.088Z - success: scene loaded
+2020-04-24T14:02:45.089Z - success: sprite-editor loaded
+2020-04-24T14:02:45.091Z - success: store loaded
+2020-04-24T14:02:45.095Z - success: timeline loaded
+2020-04-24T14:02:45.095Z - normal: Loading builtin packages
+2020-04-24T14:02:45.097Z - success: asset-db-debugger loaded
+2020-04-24T14:02:45.098Z - success: code-editor loaded
+2020-04-24T14:02:45.099Z - success: color-picker loaded
+2020-04-24T14:02:45.101Z - success: package-manager loaded
+2020-04-24T14:02:45.101Z - success: qqplay-adapter loaded
+2020-04-24T14:02:45.120Z - success: sdkbox loaded
+2020-04-24T14:02:45.124Z - success: tester loaded
+2020-04-24T14:02:45.125Z - success: ui-grid loaded
+2020-04-24T14:02:45.126Z - success: ui-kit-preview-extra loaded
+2020-04-24T14:02:45.127Z - success: ui-kit-preview loaded
+2020-04-24T14:02:45.129Z - success: ui-tree loaded
+2020-04-24T14:02:45.129Z - success: weapp-adapter loaded
+2020-04-24T14:02:45.936Z - normal: Loading packages
+2020-04-24T14:02:45.941Z - warn: Invalid package name: test: do not contains uppercase characters.
+2020-04-24T14:02:45.944Z - success: test loaded
+2020-04-24T14:02:45.944Z - normal: Watching packages
+2020-04-24T14:02:46.144Z - normal: Run Application
+2020-04-24T14:02:49.538Z - warn: [SpriteAtlas import] Some of the frame keys have been reformatted : ["img/common/ic1.png","img/common/ic2.png","img/common/ic_default_trans.png"]
+2020-04-24T14:02:54.646Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Define\RequestCode.js"
+line: "var REQUEST_CODE = {"
+2020-04-24T14:02:54.957Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var IS_RUN_INSTANT_FACEBOOK = false;"
+2020-04-24T14:02:54.957Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var IS_CLOSE_SIO_OLD = 3//1: dung cu,2:dung moi ,3: dung ca 2."
+2020-04-24T14:02:54.957Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var NAME_GAME = "_____CAM_JS";"
+2020-04-24T14:02:54.957Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var OPERATOR = 7000;"
+2020-04-24T14:02:54.958Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var DIALOG_ZINDEX=50;"
+2020-04-24T14:02:54.958Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var POPUP_ZINDEX=51;"
+2020-04-24T14:02:54.958Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var TAG = {"
+2020-04-24T14:02:54.958Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var IS_OFFLINE=true;"
+2020-04-24T14:02:54.958Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var GAME_ID = {"
+2020-04-24T14:02:54.958Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var SERVICE_CODE= {"
+2020-04-24T14:02:54.958Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var GAME_INFO = {"
+2020-04-24T14:02:54.959Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var EFFECT_TYPE = {"
+2020-04-24T14:02:54.959Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var DIALOG_TYPE = {"
+2020-04-24T14:02:54.959Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var LOGIN_TYPE = {"
+2020-04-24T14:02:54.959Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var STATE_GAME = {"
+2020-04-24T14:02:54.959Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var GAME_ZORDER = {"
+2020-04-24T14:02:54.959Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var CODE_JOKER_BLACK = 60"
+2020-04-24T14:02:54.959Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var CODE_JOKER_RED = 61"
+2020-04-24T14:02:54.960Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var TYPE_CARD_MAU_BINH = {"
+2020-04-24T14:02:54.960Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var TYPE_CARD_TIEN_LEN = {"
+2020-04-24T14:02:54.960Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var CURRENT_VIEW = {"
+2020-04-24T14:02:54.960Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var SIDE_BET = { //use for Baccarat"
+2020-04-24T14:02:54.960Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var SIDE_WINPAIR = {"
+2020-04-24T14:02:54.960Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var TYPEWIN_BACCARAT = {"
+2020-04-24T14:02:54.960Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\Define.js"
+line: "var TRACKING_TYPE = {"
+2020-04-24T14:02:55.151Z - info: Please use "window.xx = yy;" to declare global variables otherwise it may error in editor.
+path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\ResDefine.js"
+line: "var ResDefine = {"
+2020-04-24T14:03:12.499Z - success: preview server running at http://localhost:7457

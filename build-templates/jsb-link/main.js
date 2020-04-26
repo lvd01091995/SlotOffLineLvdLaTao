@@ -162,10 +162,10 @@
         document.body.appendChild(cocos2d);
     }
     else if (window.jsb) {
-       console.log("bat dau===============================================")
+       console.log("bat dau===============================================11")
        if (cc.sys.isNative) {
         // var ver = 4;//2.02
-        var ver = 5;//2.03
+        var ver = 1;//2.03
         var verOld = cc.sys.localStorage.getItem('Ver');
         
         if(verOld){
@@ -175,7 +175,7 @@
                  jsb.fileUtils.removeDirectory(_storagePath);
             }else{
             //	cc.NGWlog("===================== 1");
-                var hotUpdateSearchPaths = cc.sys.localStorage.getItem('HotUpdateSearchPaths');
+                var hotUpdateSearchPaths = cc.sys.localStorage.getItem('SearchAssets');
                 if (hotUpdateSearchPaths) {
                 jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths));
                 }

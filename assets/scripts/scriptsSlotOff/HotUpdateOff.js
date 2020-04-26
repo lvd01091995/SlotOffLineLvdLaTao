@@ -100,9 +100,10 @@ var HotUpdate = cc.Class({
         break;
       case jsb.EventAssetsManager.UPDATE_FAILED:
         console.log("Update failed. " + event.getMessage());
-        this._am.downloadFailedAssets();
-        this._updating = false;
-        this._canRetry = true;
+          this._am.downloadFailedAssets();
+          this._updating = false;
+          this._canRetry = true;
+        
         break;
       case jsb.EventAssetsManager.ERROR_UPDATING:
         console.log(
@@ -137,11 +138,11 @@ var HotUpdate = cc.Class({
       var searchPaths = jsb.fileUtils.getSearchPaths();
       var newPaths = this._am.getLocalManifest().getSearchPaths();
 
-      console.log(JSON.stringify(newPaths));
+      //console.log(JSON.stringify(newPaths));
 
       Array.prototype.unshift.apply(searchPaths, newPaths);
       cc.sys.localStorage.setItem(
-        "HotUpdateSearchPaths",
+        "SearchAssets",
         JSON.stringify(searchPaths)
       );
       jsb.fileUtils.setSearchPaths(searchPaths);
@@ -163,12 +164,11 @@ var HotUpdate = cc.Class({
       return;
     }
     if (this._am.getState() === jsb.AssetsManager.State.UNINITED) {
-      // Resolve md5 url
       var url = this.manifestUrl.nativeUrl;
       if (cc.loader.md5Pipe) {
         url = cc.loader.md5Pipe.transformURL(url);
       }
-      console.log("gia tri url la===" + url);
+   
       this._am.loadLocalManifest(url);
     }
 
@@ -180,9 +180,11 @@ var HotUpdate = cc.Class({
       return;
     }
     // this._am.setEventCallback(this.checkCb.bind(this));
+    console.log("gia tri url la===" + url);
     this._checkListener = new jsb.EventListenerAssetsManager(this._am, this.checkCb.bind(this));
     cc.eventManager.addListener(this._checkListener, 1);
     this._am.checkUpdate();
+    console.log("gia tri url la===22222222222222222222222222222222");
     this._updating = true;
     this.scheduleOnce(() => {
       //require("UIManager").instance.nextStep();
@@ -221,11 +223,11 @@ var HotUpdate = cc.Class({
 
   // use this for initialization
   showSlotGame() {
-    cc.log("Chay vao show slot game");
     this.slotView.getComponent("DataForGameSlotMaChine").showSlotGame();
   },
   onLoad() {
     HotUpdate.instance = this;
+    this.countFail = 0
     this.versionA = null;
     this.versionB = null;
     let _this = this;
@@ -244,11 +246,11 @@ var HotUpdate = cc.Class({
       );
       var vA = versionA.split(".");
       var vB = versionB.split(".");
-      _this.versionA = versionA;
-      _this.versionB = versionB;
-      require("GameManager").getInstance().versionA = versionA;
-      require("GameManager").getInstance().versionB = versionB;
-      cc.sys.localStorage.setItem("verHotUpdate", versionA);
+      // _this.versionA = versionA;
+      // _this.versionB = versionB;
+      // require("GameManager").getInstance().versionA = versionA;
+      // require("GameManager").getInstance().versionB = versionB;
+     // cc.sys.localStorage.setItem("verHotUpdate", versionA);
       for (var i = 0; i < vA.length; ++i) {
         var a = parseInt(vA[i]);
         var b = parseInt(vB[i] || 0);
@@ -291,13 +293,9 @@ var HotUpdate = cc.Class({
         return true;
       }
     });
-
-
-
     if (cc.sys.os === cc.sys.OS_ANDROID) {
       this._am.setMaxConcurrentTask(2);
     }
-    console.log('bat dau check update');
     // this.checkUpdate();
   },
   onDestroy: function () {
