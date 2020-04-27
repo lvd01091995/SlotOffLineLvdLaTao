@@ -64,7 +64,7 @@ var HotUpdate = cc.Class({
 
     this._updating = false;
   },
-
+  //
   updateCb: function (event) {
     var needRestart = false;
     var failed = false;
@@ -135,6 +135,9 @@ var HotUpdate = cc.Class({
         cc.eventManager.removeListener(this._updateListener);
         this._updateListener = null;
       }
+        let strTemp = jsb.fileUtils.getStringFromFile( this._storagePath +"/res/project.manifest");
+      jsb.fileUtils.writeStringToFile( strTemp,this._storagePath +"/project.manifest" );
+
       var searchPaths = jsb.fileUtils.getSearchPaths();
       var newPaths = this._am.getLocalManifest().getSearchPaths();
 
@@ -226,6 +229,7 @@ var HotUpdate = cc.Class({
     this.slotView.getComponent("DataForGameSlotMaChine").showSlotGame();
   },
   onLoad() {
+    //https://storage.googleapis.com/bet888-ios/v1
     HotUpdate.instance = this;
     this.countFail = 0
     this.versionA = null;
