@@ -136,3 +136,5 @@ line: "var TRACKING_TYPE = {"
 path: "D:\CocosCreatorLvd\SlotOffLine\assets\scripts\Managers\ResDefine.js"
 line: "var ResDefine = {"
 2020-04-24T14:03:12.499Z - success: preview server running at http://localhost:7457
+2020-04-24T14:05:10.314Z - warn: [db-task][sync-changes] Backup unused meta file: db://assets/scripts/libs.meta
+2020-04-25T03:22:31.204Z - info: shutdown preview server
