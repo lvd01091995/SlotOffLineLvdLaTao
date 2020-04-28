@@ -1,57 +1,56 @@
-2020-04-26T04:24:54.965Z - normal: Load ~/.CocosCreator/settings.json
-2020-04-26T04:24:54.968Z - normal: checking language setting...
-2020-04-26T04:24:54.969Z - normal: Language: en
-2020-04-26T04:24:55.532Z - success: protocol editor-framework registered
-2020-04-26T04:24:55.533Z - success: protocol app registered
-2020-04-26T04:24:55.533Z - success: protocol theme registered
-2020-04-26T04:24:55.533Z - success: protocol packages registered
-2020-04-26T04:24:55.533Z - success: protocol unpack registerred
-2020-04-26T04:24:55.533Z - success: protocol disable-commonjs registerred
-2020-04-26T04:24:55.908Z - normal: connected!
-2020-04-26T04:24:55.912Z - normal: Check project /Users/minhhien/hien/Work/H86SlotOffline
-2020-04-26T04:24:55.914Z - normal: Initializing project /Users/minhhien/hien/Work/H86SlotOffline
-2020-04-26T04:24:55.917Z - normal: Initializing Cocos2d
-2020-04-26T04:24:56.201Z - normal: Initializing Asset Database
-2020-04-26T04:24:56.263Z - success: protocol uuid registerred
-2020-04-26T04:24:56.264Z - success: protocol db registerred
-2020-04-26T04:24:56.264Z - success: protocol thumbnail registerred
-2020-04-26T04:24:56.264Z - normal: Loading editor/builtin packages
-2020-04-26T04:24:56.425Z - success: assets loaded
-2020-04-26T04:24:56.430Z - success: builder loaded
-2020-04-26T04:24:56.432Z - success: cocos-analytics loaded
-2020-04-26T04:24:56.441Z - success: console loaded
-2020-04-26T04:24:56.478Z - success: fb-instant-games loaded
-2020-04-26T04:24:56.483Z - success: hierarchy loaded
-2020-04-26T04:24:56.495Z - success: inspector loaded
-2020-04-26T04:24:56.496Z - success: keystore loaded
-2020-04-26T04:24:56.502Z - success: node-library loaded
-2020-04-26T04:24:56.504Z - success: package-asset loaded
-2020-04-26T04:24:56.512Z - success: preferences loaded
-2020-04-26T04:24:56.516Z - success: project-exporter loaded
-2020-04-26T04:24:56.535Z - success: project-importer loaded
-2020-04-26T04:24:56.538Z - success: project-settings loaded
-2020-04-26T04:24:56.545Z - success: ui-kit loaded
-2020-04-26T04:24:56.554Z - success: scene loaded
-2020-04-26T04:24:56.555Z - success: sprite-editor loaded
-2020-04-26T04:24:56.560Z - success: store loaded
-2020-04-26T04:24:56.571Z - success: timeline loaded
-2020-04-26T04:24:56.571Z - normal: Loading builtin packages
-2020-04-26T04:24:56.581Z - success: asset-db-debugger loaded
-2020-04-26T04:24:56.582Z - success: color-picker loaded
-2020-04-26T04:24:56.583Z - success: jsb-adapter loaded
-2020-04-26T04:24:56.588Z - success: package-manager loaded
-2020-04-26T04:24:56.589Z - success: qqplay-adapter loaded
-2020-04-26T04:24:56.596Z - success: sdkbox loaded
-2020-04-26T04:24:56.601Z - success: tester loaded
-2020-04-26T04:24:56.606Z - success: ui-grid loaded
-2020-04-26T04:24:56.611Z - success: ui-kit-preview-extra loaded
-2020-04-26T04:24:56.615Z - success: ui-kit-preview loaded
-2020-04-26T04:24:56.619Z - success: ui-tree loaded
-2020-04-26T04:24:56.620Z - success: weapp-adapter loaded
-2020-04-26T04:24:57.755Z - normal: Loading packages
-2020-04-26T04:24:57.760Z - warn: Invalid package name: test: do not contains uppercase characters.
-2020-04-26T04:24:57.766Z - success: test loaded
-2020-04-26T04:24:57.766Z - normal: Watching packages
-2020-04-26T04:24:57.821Z - normal: Run Application
-2020-04-26T04:25:00.418Z - warn: [db-task][init] Backup unused meta file: db://assets/scripts/libs.meta
-2020-04-26T04:25:35.870Z - success: preview server running at http://localhost:7456
+2020-04-27T06:59:49.342Z - normal: Load ~/.CocosCreator/settings.json
+2020-04-27T06:59:49.345Z - normal: checking language setting...
+2020-04-27T06:59:49.345Z - normal: Language: en
+2020-04-27T06:59:50.696Z - success: protocol editor-framework registered
+2020-04-27T06:59:50.696Z - success: protocol app registered
+2020-04-27T06:59:50.696Z - success: protocol theme registered
+2020-04-27T06:59:50.696Z - success: protocol packages registered
+2020-04-27T06:59:50.696Z - success: protocol unpack registerred
+2020-04-27T06:59:50.696Z - success: protocol disable-commonjs registerred
+2020-04-27T06:59:53.694Z - normal: failed to connect login server due to request timeout
+2020-04-27T06:59:53.695Z - normal: Check project D:\CocosCreatorLvd\SlotOffLine
+2020-04-27T06:59:53.696Z - normal: Initializing project D:\CocosCreatorLvd\SlotOffLine
+2020-04-27T06:59:53.708Z - normal: Initializing Cocos2d
+2020-04-27T06:59:53.850Z - normal: Initializing Asset Database
+2020-04-27T06:59:53.885Z - success: protocol uuid registerred
+2020-04-27T06:59:53.885Z - success: protocol db registerred
+2020-04-27T06:59:53.885Z - success: protocol thumbnail registerred
+2020-04-27T06:59:53.886Z - normal: Loading editor/builtin packages
+2020-04-27T06:59:53.982Z - success: assets loaded
+2020-04-27T06:59:53.983Z - success: builder loaded
+2020-04-27T06:59:53.985Z - success: cocos-analytics loaded
+2020-04-27T06:59:53.987Z - success: console loaded
+2020-04-27T06:59:54.013Z - success: fb-instant-games loaded
+2020-04-27T06:59:54.016Z - success: hierarchy loaded
+2020-04-27T06:59:54.018Z - success: inspector loaded
+2020-04-27T06:59:54.019Z - success: keystore loaded
+2020-04-27T06:59:54.022Z - success: node-library loaded
+2020-04-27T06:59:54.023Z - success: package-asset loaded
+2020-04-27T06:59:54.024Z - success: preferences loaded
+2020-04-27T06:59:54.025Z - success: project-exporter loaded
+2020-04-27T06:59:54.036Z - success: project-importer loaded
+2020-04-27T06:59:54.037Z - success: project-settings loaded
+2020-04-27T06:59:54.039Z - success: ui-kit loaded
+2020-04-27T06:59:54.041Z - success: scene loaded
+2020-04-27T06:59:54.041Z - success: sprite-editor loaded
+2020-04-27T06:59:54.043Z - success: store loaded
+2020-04-27T06:59:54.046Z - success: timeline loaded
+2020-04-27T06:59:54.046Z - normal: Loading builtin packages
+2020-04-27T06:59:54.048Z - success: asset-db-debugger loaded
+2020-04-27T06:59:54.049Z - success: code-editor loaded
+2020-04-27T06:59:54.050Z - success: color-picker loaded
+2020-04-27T06:59:54.051Z - success: package-manager loaded
+2020-04-27T06:59:54.052Z - success: qqplay-adapter loaded
+2020-04-27T06:59:54.070Z - success: sdkbox loaded
+2020-04-27T06:59:54.074Z - success: tester loaded
+2020-04-27T06:59:54.075Z - success: ui-grid loaded
+2020-04-27T06:59:54.076Z - success: ui-kit-preview-extra loaded
+2020-04-27T06:59:54.077Z - success: ui-kit-preview loaded
+2020-04-27T06:59:54.079Z - success: ui-tree loaded
+2020-04-27T06:59:54.079Z - success: weapp-adapter loaded
+2020-04-27T06:59:54.818Z - normal: Loading packages
+2020-04-27T06:59:54.822Z - warn: Invalid package name: test: do not contains uppercase characters.
+2020-04-27T06:59:54.828Z - success: test loaded
+2020-04-27T06:59:54.828Z - normal: Watching packages
+2020-04-27T06:59:55.013Z - normal: Run Application
+2020-04-27T07:00:01.470Z - success: preview server running at http://localhost:7457
