@@ -8,6 +8,7 @@
   },
   "collision-matrix": [
     [
+      false,
       false
     ],
     [
@@ -24,6 +25,7 @@
       false,
       false,
       false,
+      false,
       false
     ],
     [
@@ -34,14 +36,11 @@
       false
     ]
   ],
-  "design-resolution-height": 640,
-  "design-resolution-width": 960,
-  "excluded-modules": [
-    "VideoPlayer",
-    "WebView"
-  ],
-  "fit-height": false,
-  "fit-width": true,
+  "design-resolution-height": 750,
+  "design-resolution-width": 1334,
+  "excluded-modules": [],
+  "fit-height": true,
+  "fit-width": false,
   "group-list": [
     "default",
     "fish",
@@ -51,10 +50,10 @@
   ],
   "simulator-orientation": true,
   "simulator-resolution": {
-    "height": 768,
-    "width": 1024
+    "height": 1536,
+    "width": 2048
   },
-  "start-scene": "3e14c4e2-aafa-4477-b05f-a3d8dc08a037",
+  "start-scene": "b1a6e36d-6b12-4397-a24a-c55212a1fdba",
   "use-customize-simulator": false,
   "use-project-simulator-setting": true
 }

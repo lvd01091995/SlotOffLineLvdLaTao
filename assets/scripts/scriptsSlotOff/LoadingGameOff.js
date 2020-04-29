@@ -64,7 +64,7 @@ var LoadingGameOff = cc.Class({
         http.setRequestHeader('os-type', os );
         http.setRequestHeader('device-client-id', GameManager.getInstance().deviceId);
         http.setRequestHeader('merchantid', "1");
-        http.withCredentials = true;
+       // http.withCredentials = true;
         http.onreadystatechange = () => {//Call a function when the state changes.
           if (http.readyState === 4 && (http.status >= 200 && http.status < 300)) {
             cc.log("data config tra ve " + http.responseText);
@@ -72,7 +72,7 @@ var LoadingGameOff = cc.Class({
           }
         }
         var data = {
-          version: "3.0.14",
+          version: "4.0.14",
           os:os,
           merchantid: "1"
         }

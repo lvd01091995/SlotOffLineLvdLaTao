@@ -11,7 +11,7 @@ var URLs_SubPack = [];
 var proManUid = "";
 // sua thong tin hot update 
 var versionUpdate = "1.0.0";
- var linkHotUpdate = "http://192.168.1.97:8080/";
+ var linkHotUpdate = "https://storage.googleapis.com/bet888-ios/v1/";
 //var linkHotUpdate = "http://192.168.1.50:8700/";
 // su thong tin hotupdate end
 var manifest = {
@@ -22,7 +22,7 @@ var manifest = {
   assets: {},
   searchPaths: []
 };
-//https://storage.googleapis.com/s.ngwcasino.com/asset/js/ios/ngw_purple_43/
+
 var dest = './remote-assets/';
 var src = './jsb/';
 

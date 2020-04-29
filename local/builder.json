@@ -1,18 +1,18 @@
 {
-  "actualPlatform": "Android",
-  "apiLevel": "android-28",
+  "actualPlatform": "iOS",
+  "apiLevel": "android-21",
   "appABIs": [
-    "armeabi-v7a",
-    "arm64-v8a"
+    "arm64-v8a",
+    "armeabi-v7a"
   ],
   "buildPath": "./build",
-  "debug": true,
+  "debug": false,
   "embedWebDebugger": false,
   "keystoreAlias": "",
   "keystoreAliasPassword": "",
   "keystorePassword": "",
   "keystorePath": "",
-  "platform": "android",
+  "platform": "ios",
   "previewHeight": "720",
   "previewWidth": "1280",
   "sourceMaps": false,
