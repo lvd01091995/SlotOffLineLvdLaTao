@@ -14,7 +14,7 @@ var HotUpdate = cc.Class({
     _canRetry: false,
     _storagePath: "",
     slotView: cc.Node,
-
+    btn_play: cc.Button,
   },
 
   statics: {
@@ -48,7 +48,7 @@ var HotUpdate = cc.Class({
         //   this.hotUpdate();
         // }, true);
         this.hotUpdate();
-        this.slotView.active=false;
+        this.slotView.active = false;
         require("GameManager").getInstance().isHaveUpdate = true;
         break;
       default:
@@ -75,7 +75,8 @@ var HotUpdate = cc.Class({
         break;
       case jsb.EventAssetsManager.UPDATE_PROGRESSION:
         console.log("so phan tram dc tai la===" + event.getPercent());
-        this.slotView.active=false;
+        this.btn_play.interactable = false;
+        this.slotView.active = false;
         this.loadingBar.is_load_update = true;
         // this.loadingBar.changeinfo();
         this.loadingBar.setProgress(event.getPercent());
@@ -100,10 +101,10 @@ var HotUpdate = cc.Class({
         break;
       case jsb.EventAssetsManager.UPDATE_FAILED:
         console.log("Update failed. " + event.getMessage());
-          this._am.downloadFailedAssets();
-          this._updating = false;
-          this._canRetry = true;
-        
+        this._am.downloadFailedAssets();
+        this._updating = false;
+        this._canRetry = true;
+
         break;
       case jsb.EventAssetsManager.ERROR_UPDATING:
         console.log(
@@ -127,6 +128,7 @@ var HotUpdate = cc.Class({
       }
       this._updating = false;
       this.loadingBar.node.active = false;
+
       //require("UIManager").instance.nextStep();
       this.showSlotGame();
     }
@@ -136,10 +138,10 @@ var HotUpdate = cc.Class({
         this._updateListener = null;
       }
 
-      let strTemp = jsb.fileUtils.getStringFromFile( this._storagePath +"/res/project.manifest");
-      jsb.fileUtils.writeStringToFile( strTemp,this._storagePath +"/project.manifest" );
+      let strTemp = jsb.fileUtils.getStringFromFile(this._storagePath + "/res/project.manifest");
+      jsb.fileUtils.writeStringToFile(strTemp, this._storagePath + "/project.manifest");
 
-      cc.log("url manifest local " +  this._am.getLocalManifest().getManifestFileUrl());
+      cc.log("url manifest local " + this._am.getLocalManifest().getManifestFileUrl());
       var searchPaths = jsb.fileUtils.getSearchPaths();
       var newPaths = this._am.getLocalManifest().getSearchPaths();
 
@@ -159,7 +161,7 @@ var HotUpdate = cc.Class({
       //   cc.game.restart();
       // }, false);
       //   
-     
+
     }
   },
 
@@ -174,7 +176,7 @@ var HotUpdate = cc.Class({
       if (cc.loader.md5Pipe) {
         url = cc.loader.md5Pipe.transformURL(url);
       }
-   
+
       this._am.loadLocalManifest(url);
     }
 
@@ -194,7 +196,7 @@ var HotUpdate = cc.Class({
     this._updating = true;
     this.scheduleOnce(() => {
       //require("UIManager").instance.nextStep();
-     this.showSlotGame();
+      this.showSlotGame();
     }, 5)
   },
 
@@ -230,6 +232,8 @@ var HotUpdate = cc.Class({
   // use this for initialization
   showSlotGame() {
     this.slotView.getComponent("DataForGameSlotMaChine").showSlotGame();
+    this.btn_play.interactable = failed;
+    
   },
   onLoad() {
     HotUpdate.instance = this;
@@ -238,7 +242,7 @@ var HotUpdate = cc.Class({
     this.versionB = null;
     let _this = this;
     if (!cc.sys.isNative) {
-     // this.showSlotGame();
+      // this.showSlotGame();
       return;
     }
     this._storagePath = (jsb.fileUtils ? jsb.fileUtils.getWritablePath() : "/") + "remote-asset";
@@ -256,7 +260,7 @@ var HotUpdate = cc.Class({
       // _this.versionB = versionB;
       // require("GameManager").getInstance().versionA = versionA;
       // require("GameManager").getInstance().versionB = versionB;
-     // cc.sys.localStorage.setItem("verHotUpdate", versionA);
+      // cc.sys.localStorage.setItem("verHotUpdate", versionA);
       for (var i = 0; i < vA.length; ++i) {
         var a = parseInt(vA[i]);
         var b = parseInt(vB[i] || 0);
@@ -302,7 +306,7 @@ var HotUpdate = cc.Class({
     if (cc.sys.os === cc.sys.OS_ANDROID) {
       this._am.setMaxConcurrentTask(2);
     }
-     this.checkUpdate();
+    this.checkUpdate();
   },
   onDestroy: function () {
     if (this._updateListener != null) {

@@ -277,7 +277,7 @@ var DataForGameSlotMaChine = cc.Class({
     getMoney() {
         var ag = cc.sys.localStorage.getItem("agSlotOffline");
         if (ag === null) {
-            cc.sys.localStorage.setItem("agSlotOffline", 100000);
+            cc.sys.localStorage.setItem("agSlotOffline", 500000);
             ag = cc.sys.localStorage.getItem("agSlotOffline");
         }
 
