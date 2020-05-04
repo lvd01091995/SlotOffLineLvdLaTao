@@ -48,7 +48,6 @@ cc.Class({
         if (isTurnOnSon) {
             let randomBlur = this.getRanNum(1, 4);
             this.itemBlur.getComponent(cc.Sprite).spriteFrame = this.sprAtlasBlur.getSpriteFrame("blur" + randomBlur);
-            cc.log("set Blur");
         }
         this.listIdView = listData.slice();
     },

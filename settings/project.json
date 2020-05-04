@@ -50,8 +50,8 @@
   ],
   "simulator-orientation": true,
   "simulator-resolution": {
-    "height": 1536,
-    "width": 2048
+    "height": 1080,
+    "width": 1920
   },
   "start-scene": "b1a6e36d-6b12-4397-a24a-c55212a1fdba",
   "use-customize-simulator": false,

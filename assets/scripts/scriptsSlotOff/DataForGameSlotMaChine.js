@@ -40,15 +40,13 @@ var DataForGameSlotMaChine = cc.Class({
         this.gameView = null;
         this.showSlotGame();
         this.isInitGame = false;
-        Global.GameView= this;
+        Global.GameView = this;
     },
 
 
     start() {
         console.log('------> js size X ', cc.winSize.width)
         console.log('------> js size Y ', cc.winSize.height)
-        // this.btnPlay.node.x = cc.winSize.width * .225
-        // this.btnPlay.node.y = -cc.winSize.height * .225
     },
 
     showSlotGame() {
@@ -69,30 +67,54 @@ var DataForGameSlotMaChine = cc.Class({
         this.baseReels.push([4, 1, 11, 2, 7, 0, 9, 5, 1, 3, 8, 4, 2, 6, 12, 4, 0, 3, 1, 8, 4, 2, 6, 0, 10, 4, 1, 3, 2, 12, 4, 0, 7, 1, 8, 2, 4, 0, 9, 1, 6, 2, 8, 0]);
         this.baseReels.push([1, 7, 11, 5, 1, 7, 8, 6, 0, 3, 12, 4, 1, 6, 9, 5, 2, 7, 10, 1, 3, 2, 8, 1, 3, 0, 9, 5, 1, 3, 10, 6, 0, 3, 8, 7, 1, 6, 12, 3, 2, 5, 9, 3]);
         this.baseReels.push([5, 2, 11, 3, 0, 6, 1, 5, 12, 2, 4, 0, 10, 3, 1, 7, 3, 2, 11, 5, 4, 6, 0, 5, 12, 1, 3, 7, 2, 4, 8, 0, 3, 6, 1, 4, 12, 2, 5, 7, 0, 4, 9, 1]);
+        this.baseReels.push([5, 2, 11, 3, 0, 6, 1, 5, 12, 2, 4, 0, 10, 3, 1, 7, 3, 2, 11, 5, 4, 6, 0, 5, 12, 1, 3, 7, 2, 4, 8, 0, 3, 6, 1, 4, 12, 2, 5, 7, 0, 4, 9, 1]);
         this.baseReels.push([7, 0, 11, 4, 6, 1, 9, 5, 10, 2, 7, 3, 8, 0, 4, 9, 1, 6, 5, 10, 2, 8, 3]);
 
 
         this.payLine = [];
-        this.payLine.push([1, 1, 1, 1, 1]);  //1
-        this.payLine.push([0, 0, 0, 0, 0]);  //2
-        this.payLine.push([2, 2, 2, 2, 2]);	//3
-        this.payLine.push([0, 1, 2, 1, 0]);	//4
-        this.payLine.push([2, 1, 0, 1, 2]);	//5
-        this.payLine.push([0, 0, 1, 2, 2]);	//6
-        this.payLine.push([2, 2, 1, 0, 0]);	//7
-        this.payLine.push([1, 0, 1, 2, 1]);	//8
-        this.payLine.push([1, 2, 1, 0, 1]);	//9
-        this.payLine.push([1, 0, 0, 1, 0]);	//10
-        this.payLine.push([1, 2, 2, 1, 2]);	//11
-        this.payLine.push([0, 1, 0, 0, 1]);	//12
-        this.payLine.push([2, 1, 2, 2, 1]);	//13
-        this.payLine.push([0, 2, 0, 2, 0]);	//14
-        this.payLine.push([2, 0, 2, 0, 2]);	//15
-        this.payLine.push([1, 0, 2, 0, 1]);	//16
-        this.payLine.push([1, 2, 0, 2, 1]);	//17
-        this.payLine.push([0, 1, 1, 1, 0]);	//18
-        this.payLine.push([2, 1, 1, 1, 2]);	//19
-        this.payLine.push([0, 2, 2, 2, 0]);  //20
+        // this.payLine.push([1, 1, 1, 1, 1]);  //1
+        // this.payLine.push([0, 0, 0, 0, 0]);  //2
+        // this.payLine.push([2, 2, 2, 2, 2]);	//3
+        // this.payLine.push([0, 1, 2, 1, 0]);	//4
+        // this.payLine.push([2, 1, 0, 1, 2]);	//5
+        // this.payLine.push([0, 0, 1, 2, 2]);	//6
+        // this.payLine.push([2, 2, 1, 0, 0]);	//7
+        // this.payLine.push([1, 0, 1, 2, 1]);	//8
+        // this.payLine.push([1, 2, 1, 0, 1]);	//9
+        // this.payLine.push([1, 0, 0, 1, 0]);	//10
+        // this.payLine.push([1, 2, 2, 1, 2]);	//11
+        // this.payLine.push([0, 1, 0, 0, 1]);	//12
+        // this.payLine.push([2, 1, 2, 2, 1]);	//13
+        // this.payLine.push([0, 2, 0, 2, 0]);	//14
+        // this.payLine.push([2, 0, 2, 0, 2]);	//15
+        // this.payLine.push([1, 0, 2, 0, 1]);	//16
+        // this.payLine.push([1, 2, 0, 2, 1]);	//17
+        // this.payLine.push([0, 1, 1, 1, 0]);	//18
+        // this.payLine.push([2, 1, 1, 1, 2]);	//19
+        // this.payLine.push([0, 2, 2, 2, 0]);  //20
+        this.payLine = [
+            [-9, -9, -9, -9]
+            [1, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0],
+            [2, 2, 2, 2, 2],
+            [2, 1, 0, 1, 2],
+            [0, 1, 2, 1, 0],
+            [1, 0, 0, 0, 1],
+            [1, 2, 2, 2, 1],
+            [0, 0, 1, 2, 2],
+            [2, 2, 1, 0, 0],
+            [1, 0, 1, 2, 1],
+            [1, 2, 1, 0, 1],
+            [0, 1, 1, 1, 0],
+            [2, 1, 1, 1, 2],
+            [0, 1, 0, 1, 0],
+            [2, 1, 2, 1, 2],
+            [1, 1, 0, 1, 1],
+            [1, 1, 2, 1, 1],
+            [0, 0, 2, 0, 0],
+            [2, 2, 0, 2, 2],
+            [0, 2, 2, 2, 0]
+        ];
 
         this.viewSlot = [];
         this.viewSlot.push([2, 5, 9]);
@@ -227,6 +249,7 @@ var DataForGameSlotMaChine = cc.Class({
 
     showGame() {
         // cc.sys.localStorage.removeItem('agSlotOffline')
+        cc.log("Show Game Slot");
         this.btnPlay.interactable = false;
         if (!this.isInitGame) {
             cc.loader.loadRes('prefab/Slot20JackPot', (err, prefab) => {
@@ -313,7 +336,7 @@ var DataForGameSlotMaChine = cc.Class({
                 M: jackpot,
                 G: 1000000
             }
-            require("HandleServicePacket").handleService(JSON.stringify(message));
+            require("GameManager").getInstance().handleJackPotWin(message);
             this.agJackpot = jackpot;
         } else this.agJackpot = 0;
         cc.log("Ag jackpot==" + this.agJackpot);
@@ -396,7 +419,7 @@ var DataForGameSlotMaChine = cc.Class({
     linesWin() {
         var win = 0;
 
-        for (let l = 0; l < this.payLine.length; l++) {
+        for (let l = 1; l < this.payLine.length; l++) {
             let line = [-1, -1, -1, -1, -1];
 
             for (let i = 0; i < line.length; i++) {
